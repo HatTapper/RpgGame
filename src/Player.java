@@ -1,18 +1,18 @@
 import java.util.Scanner;
 
 public class Player {
-    private String name;
+    private final String name;
     private int level;
     private int experience;
     private int experienceToNextLevel;
     private int health;
     private int maxHealth;
     private boolean guarding;
-    private Weapon weapon;
+    private final Weapon weapon;
 
     private int calculateExperienceToNextLevel()
     {
-        return (int) (level * 100);
+        return (level * 100);
     }
 
     public Player(String name)

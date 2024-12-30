@@ -1,4 +1,4 @@
-import java.util.Map;
+
 
 public class AllPrompts {
     public Prompt[] prompts;
@@ -46,7 +46,7 @@ public class AllPrompts {
                Steeling yourself for the inevitable diseases you're going to contract from this, you take a deep breath
                and insert your hand inside the water.
                
-               Lo and behold, there was nothing inside the "water" but a sense of lingering disappointment in yourself. 
+               Lo and behold, there was nothing inside the "water" but a sense of lingering disappointment in yourself.
                You store your disappointment in your inventory and continue.
                \s""", new Choice[]{choice0}, 4);
 
