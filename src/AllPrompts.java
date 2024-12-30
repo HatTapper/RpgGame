@@ -69,7 +69,7 @@ public class AllPrompts {
                 Either way, you're sure that the combat experience will come in handy for the future
                 when you finally break free from this sewer.
                 """, new Choice[]{choice0}, 5, emptyFunc);
-        choice0 = new Choice("Continue down the main path.", 1, 7);
+        choice0 = new Choice("Continue down the main path.", -1, 6);
         Prompt Prompt6 = new Prompt("""
                 END OF TEST BUILD
                 """, new Choice[]{choice0}, 6, emptyFunc);
