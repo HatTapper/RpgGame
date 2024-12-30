@@ -15,7 +15,7 @@ public class Fists extends Weapon {
         if(rand.nextDouble(0, 1) < criticalChance)
         {
             finalDamage *= 2;
-            System.out.printf("CRITICAL HIT!\nYou dealt %d damage!", finalDamage);
+            System.out.printf("CRITICAL HIT!\nYou dealt %d damage!\n", finalDamage);
             enemy.takeDamage(finalDamage);
         }
         else

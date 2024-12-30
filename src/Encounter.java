@@ -29,7 +29,7 @@ public class Encounter {
                         new Choice("Attack", -1, -1),
                         new Choice("Guard", -1, -1),
                         new Choice("Inspect", -1, -1)
-                }, -1);
+                }, -1, new PromptFunction[]{new EmptyPromptFunction()});
         prompt.displayPrompt();
     }
 
@@ -57,7 +57,7 @@ public class Encounter {
                     scanner.nextLine();
                     break;
                 default:
-                    System.out.println("You try to do whatever strange action you came up with, fumbling around like a buffoon.\n");
+                    System.out.println("You try to do whatever strange action you came up with, fumbling around mindlessly. \n(Hint: make sure you're inputting a valid option!)\n");
             }
 
             if(enemy.health > 0)

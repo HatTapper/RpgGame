@@ -14,6 +14,7 @@ public class Main {
 
         while(playing) {
             promptManager.getCurrentPrompt().displayPrompt();
+            promptManager.getCurrentPrompt().runFunction(player);
             String choice = scanner.nextLine();
             Choice currentChoice;
 
@@ -21,6 +22,7 @@ public class Main {
                 case "1":
                     currentChoice = promptManager.getCurrentPrompt().getChoice(1);
                     promptManager.chooseNextPrompt(currentChoice.nextPromptId());
+
                     if(currentChoice.encounterId() >= 0)
                     {
                         Encounter encounter = new AllEncounters().encounters[currentChoice.encounterId()];
@@ -33,6 +35,7 @@ public class Main {
                     {
                         currentChoice = promptManager.getCurrentPrompt().getChoice(2);
                         promptManager.chooseNextPrompt(currentChoice.nextPromptId());
+
                         if(currentChoice.encounterId() >= 0)
                         {
                             Encounter encounter = new AllEncounters().encounters[currentChoice.encounterId()];
@@ -56,6 +59,7 @@ public class Main {
                     {
                         currentChoice = promptManager.getCurrentPrompt().getChoice(3);
                         promptManager.chooseNextPrompt(currentChoice.nextPromptId());
+
                         if(currentChoice.encounterId() >= 0)
                         {
                             Encounter encounter = new AllEncounters().encounters[currentChoice.encounterId()];
@@ -74,6 +78,7 @@ public class Main {
                     {
                         currentChoice = promptManager.getCurrentPrompt().getChoice(4);
                         promptManager.chooseNextPrompt(currentChoice.nextPromptId());
+
                         if(currentChoice.encounterId() >= 0)
                         {
                             Encounter encounter = new AllEncounters().encounters[currentChoice.encounterId()];
