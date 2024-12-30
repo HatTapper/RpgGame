@@ -11,4 +11,8 @@ public abstract class Weapon {
     }
 
     public abstract void attack(Player player, Enemy enemy);
+    public int getDamage(Player player)
+    {
+        return damage + player.getLevel() * 2;
+    }
 }

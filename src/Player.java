@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Player {
     private String name;
     private int level;
@@ -30,6 +32,8 @@ public class Player {
     {
         System.out.println("Name: " + name);
         System.out.println("Level: " + level);
+        System.out.println("Health: " + health + "/" + maxHealth);
+        System.out.println("Damage: " + weapon.getDamage(this));
         System.out.println("Experience: " + experience);
         System.out.println("Experience to next level: " + experienceToNextLevel);
     }
@@ -67,22 +71,50 @@ public class Player {
     {
         if(guarding)
         {
+            System.out.printf("Sheesh, blocking that attack shaved off the edge, only hurting you for %d damage!\n", amount / 2);
             health -= amount / 2;
         }
         else
         {
+            System.out.printf("Ouch! You got hurt for %d damage!\n", amount);
             health -= amount;
         }
     }
 
-    public void addExperience(int amount)
+    public void heal(int amount)
+    {
+        health += amount;
+        if(health > maxHealth)
+        {
+            health = maxHealth;
+        }
+    }
+
+    private void levelUp()
+    {
+        level++;
+        maxHealth += 10;
+        heal(9999);
+
+        experience = experience - experienceToNextLevel;
+        experienceToNextLevel = calculateExperienceToNextLevel();
+
+
+        System.out.println("You leveled up! Here are your new stats:");
+        displayStats();
+    }
+
+    public void giveExperience(int amount)
     {
         experience += amount;
-        if (experience >= experienceToNextLevel)
+        int currentLevel = level;
+        while(experience >= experienceToNextLevel)
         {
-            level++;
-            experience = 0;
-            experienceToNextLevel = calculateExperienceToNextLevel();
+            levelUp();
+        }
+        if(currentLevel < level)
+        {
+            new Scanner(System.in).nextLine();
         }
     }
 

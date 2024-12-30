@@ -18,13 +18,17 @@ public class Encounter {
     private void printBattleMenu(Player player)
     {
         Prompt prompt = new Prompt(String.format("""
+                
+                ||| IN BATTLE |||
+                
                 %s: %d / %d HP
                 
                 %s: %d / %d HP
                 """, enemy.name, enemy.health, enemy.maxHealth, player.getName(), player.getHealth(), player.getMaxHealth()),
                 new Choice[]{
                         new Choice("Attack", -1, -1),
-                        new Choice("Guard", -1, -1)
+                        new Choice("Guard", -1, -1),
+                        new Choice("Inspect", -1, -1)
                 }, -1);
         prompt.displayPrompt();
     }
@@ -48,6 +52,12 @@ public class Encounter {
                 case "2":
                     player.guard(true);
                     break;
+                case "3":
+                    enemy.inspect();
+                    scanner.nextLine();
+                    break;
+                default:
+                    System.out.println("You try to do whatever strange action you came up with, fumbling around like a buffoon.\n");
             }
 
             if(enemy.health > 0)
@@ -55,5 +65,7 @@ public class Encounter {
                 enemy.attack(player);
             }
         }
+
+        player.giveExperience(enemy.experienceGiven);
     }
 }

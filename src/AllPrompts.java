@@ -35,7 +35,7 @@ public class AllPrompts {
                Your gaze drifts toward the viscous sewage water, a stagnant current gently flowing along who knows what.
                \s""", new Choice[]{choice0, choice1}, 1);
 
-        choice0 = new Choice("Continue", -1, 3);
+        choice0 = new Choice("Continue", -1, 4);
         Prompt Prompt2 = new Prompt("""
                Ew, you didn't think rats were that big. Plus it had, like, disgusting stuff sticking out of its fur.
                As the rat draws its final breath, you try not to think too hard about struggling against a mere rodent.
@@ -46,13 +46,17 @@ public class AllPrompts {
                Steeling yourself for the inevitable diseases you're going to contract from this, you take a deep breath
                and insert your hand inside the water.
                
-               
-               Lo and behold, there was nothing inside the "water". You store your disappointment in your inventory and
-               continue.
-               \s""", new Choice[]{choice0}, 3);
+               Lo and behold, there was nothing inside the "water" but a sense of lingering disappointment in yourself. 
+               You store your disappointment in your inventory and continue.
+               \s""", new Choice[]{choice0}, 4);
+
+        choice0 = new Choice("Continue", -1, 3);
+        Prompt Prompt4 = new Prompt("""
+                Feeling high off your own victory, you begin to travel down the sewage system.
+                """, new Choice[]{choice0}, 5);
 
 
-        this.prompts = new Prompt[]{Prompt0, Prompt1, Prompt2};
+        this.prompts = new Prompt[]{Prompt0, Prompt1, Prompt2, Prompt3, Prompt4};
     }
 
     public AllPrompts()
