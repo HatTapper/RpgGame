@@ -1,3 +1,5 @@
+// stores all encounters that the game uses
+
 public class AllEncounters {
     public Encounter[] encounters;
 
