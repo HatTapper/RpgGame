@@ -1,5 +1,7 @@
 
-
+/*
+this class contains all the prompts used by the game
+ */
 
 public class AllPrompts {
     public Prompt[] prompts;
@@ -23,6 +25,9 @@ public class AllPrompts {
                \s
                A sudden wave of pain flashes across your head and your hand instinctively reaches up to rub against your forehead.
                Trying to remember what could have possibly led you here only made your head hurt more.
+               
+               You check your pockets for anything that might be useful, and you find a pouch holding 10 silver coins.
+               Well, at least you have some money...
                \s
                You go through your possible options:
                
@@ -72,6 +77,7 @@ public class AllPrompts {
                 Either way, you're sure that the combat experience will come in handy for the future
                 when you finally break free from this sewer.
                 """, new Choice[]{choice0}, 5, emptyFunc);
+
         choice0 = new Choice("Stand up!", 2, 7);
         Prompt Prompt6 = new Prompt("""
                 You've likely been traveling down this tunnel for nearly an hour. Your legs are tired and you're
@@ -136,17 +142,34 @@ public class AllPrompts {
                 It's far too late to be staying out here. You need to get to the village as soon as possible.
                 """, new Choice[]{choice0}, 6, emptyFunc);
 
-        choice0 = new Choice("placeholder text", -1, 14);
+        choice0 = new Choice("Go to the inn.", -1, 15);
+        choice1 = new Choice("Go to the shop.", -1, 14);
+        choice2 = new Choice("Go to the library.", -1, 14);
         Prompt Prompt14 = new Prompt("""
-                END OF TEST
-                """, new Choice[]{choice0}, 6, emptyFunc);
+                Upon reaching the village, you can see the bustle of people walking around. Nobody seems to pay any mind
+                to your presence. Apart from a bunch of what looks like normal houses, you spot a few buildings that
+                you could check out.
+                """, new Choice[]{choice0, choice1, choice2}, 6, emptyFunc);
 
+        choice0 = new Choice("Wait for the owner.", -1, 14);
+        choice1 = new Choice("Go to the shop.", -1, 14);
+        choice2 = new Choice("Go to the library.", -1, 14);
+        Prompt Prompt15 = new Prompt("""
+                Inside the inn, you see a desk with a sign hanging from the front of it.
+                
+                "5 SILVER PER NIGHT"
+                
+                You suddenly remember the pouch of money you had in your pocket. You look around for anyone that appeared
+                to be the owner of the inn, but nobody seems to be there. You could wait for the owner to show up, but
+                you'd miss out on exploring the rest of the village if you did.
+                """, new Choice[]{choice0, choice1, choice2}, 6, emptyFunc);
 
+        // structure to store all the prompts to be accessed by the prompt manager later on
         this.prompts = new Prompt[]
                 {
                         Prompt0, Prompt1, Prompt2, Prompt3, Prompt4, Prompt5,
                         Prompt6, Prompt7, Prompt8, Prompt9, Prompt10, Prompt11,
-                        Prompt12, Prompt13, Prompt14
+                        Prompt12, Prompt13, Prompt14, Prompt15,
                 };
     }
 
