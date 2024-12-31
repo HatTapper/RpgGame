@@ -14,10 +14,17 @@ public class AllEncounters {
                 A rat suddenly squeezes out of a nearby hole, likely disturbed by your intrusion.
                 """, new Rat());
 
-        Encounter encounter2 = new Encounter(1, """
+        Encounter encounter2 = new Encounter(2, """
                 This one seems tough, you better think it through.
                 """, new SewageBeast());
 
-        this.encounters = new Encounter[]{encounter0, encounter1, encounter2};
+        Encounter encounter3 = new Encounter(3, """
+                Your unintended nap was interrupted by the sound of growling and the patter of paws rapidly approaching.
+                Instinctively, you leap to your feet. How long were you asleep? It's practically night...
+                
+                No matter, a hyena is rapidly approaching!
+                """, new Hyena());
+
+        this.encounters = new Encounter[]{encounter0, encounter1, encounter2, encounter3};
     }
 }
