@@ -4,16 +4,24 @@ public class Main {
 
     public static void main(String[] args)
     {
+        // determines if game loop will keep going
         boolean playing = true;
+
+        // get name from user and create new player and prompt manager
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome, traveller! Please enter your name.");
 
         String name = scanner.nextLine();
         Player player = new Player(name);
         PromptManager promptManager = new PromptManager();
+
+        // use these for testing
+        //player.addSkill(new SkillParry());
         //promptManager.chooseNextPrompt(7);
 
+        // GAME LOOP
         while(playing) {
+            // if player has no health left, end the game and show them their final stats
             if(player.getHealth() <= 0)
             {
                 System.out.println("\nYou lose!\n");
@@ -22,13 +30,21 @@ public class Main {
                 break;
             }
 
+            // displays the next prompt and runs its prompt function
             promptManager.getCurrentPrompt().displayPrompt();
             promptManager.getCurrentPrompt().runFunction(player);
+
+            // grab player's choice
             String choice = scanner.nextLine();
             Choice currentChoice;
 
+            /* determine if player submitted a valid choice
+             * if they did, check if the prompt allows said choice
+             * if the choice leads to an encounter, begin the encounter game loop
+             * if the player submits an invalid choice, ask for a resubmit
+             */
             switch (choice) {
-                case "1":
+                case "1": // standard choice
                     currentChoice = promptManager.getCurrentPrompt().getChoice(1);
                     promptManager.chooseNextPrompt(currentChoice.nextPromptId());
 
@@ -39,7 +55,7 @@ public class Main {
                         encounter.beginBattleLoop(player);
                     }
                     break;
-                case "2":
+                case "2": // standard choice
                     if(promptManager.doesPromptHaveChoice(2))
                     {
                         currentChoice = promptManager.getCurrentPrompt().getChoice(2);
@@ -50,11 +66,6 @@ public class Main {
                             Encounter encounter = new AllEncounters().encounters[currentChoice.encounterId()];
                             encounter.printIntro();
                             encounter.beginBattleLoop(player);
-
-                            if(player.getHealth() <= 0)
-                            {
-                                playing = false;
-                            }
                         }
                     }
                     else
@@ -101,15 +112,15 @@ public class Main {
                         scanner.nextLine();
                     }
                     break;
-                case "q":
+                case "q": // quits the game immediately
                     System.out.println("Goodbye!");
                     playing = false;
                     break;
-                case "stats":
+                case "stats": // displays the player's stats
                     player.displayStats();
                     scanner.nextLine();
                     break;
-                default:
+                default: // default case, ask for resubmit
                     System.out.println("Invalid choice.");
                     scanner.nextLine();
             }
