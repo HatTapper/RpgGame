@@ -11,6 +11,7 @@ public class Main {
         String name = scanner.nextLine();
         Player player = new Player(name);
         PromptManager promptManager = new PromptManager();
+        //promptManager.chooseNextPrompt(7);
 
         while(playing) {
             if(player.getHealth() <= 0)
