@@ -14,6 +14,10 @@ public class AllEncounters {
                 A rat suddenly squeezes out of a nearby hole, likely disturbed by your intrusion.
                 """, new Rat());
 
-        this.encounters = new Encounter[]{encounter0, encounter1};
+        Encounter encounter2 = new Encounter(1, """
+                This one seems tough, you better think it through.
+                """, new SewageBeast());
+
+        this.encounters = new Encounter[]{encounter0, encounter1, encounter2};
     }
 }

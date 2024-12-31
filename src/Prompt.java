@@ -29,6 +29,7 @@ public class Prompt {
 
     public Choice getChoice(int choiceId)
     {
+        if(choiceId < 1 || choiceId > choices.length) return null;
         return choices[choiceId - 1];
     }
     public int getPromptId() {

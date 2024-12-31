@@ -66,6 +66,9 @@ public class Encounter {
             }
         }
 
-        player.giveExperience(enemy.experienceGiven);
+        if(player.getHealth() > 0)
+        {
+            player.giveExperience(enemy.experienceGiven);
+        }
     }
 }

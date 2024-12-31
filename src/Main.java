@@ -13,6 +13,14 @@ public class Main {
         PromptManager promptManager = new PromptManager();
 
         while(playing) {
+            if(player.getHealth() <= 0)
+            {
+                System.out.println("\nYou lose!\n");
+                System.out.println("Your final stats:");
+                player.displayStats();
+                break;
+            }
+
             promptManager.getCurrentPrompt().displayPrompt();
             promptManager.getCurrentPrompt().runFunction(player);
             String choice = scanner.nextLine();

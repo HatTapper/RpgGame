@@ -62,20 +62,35 @@ public class AllPrompts {
                 Upon investigation, there appears to be a crawlspace. It's far too dark to see anything in there.
                 """, new Choice[]{choice0, choice1}, 4, emptyFunc);
 
-        choice0 = new Choice("Continue down the main path.", 1, 6);
+        choice0 = new Choice("Continue down the main path.", -1, 6);
         Prompt Prompt5 = new Prompt("""
                 You hate rats.
                 
                 Either way, you're sure that the combat experience will come in handy for the future
                 when you finally break free from this sewer.
                 """, new Choice[]{choice0}, 5, emptyFunc);
-        choice0 = new Choice("Continue down the main path.", -1, 6);
+        choice0 = new Choice("Stand up!", 2, 7);
         Prompt Prompt6 = new Prompt("""
-                END OF TEST BUILD
+                You've likely been traveling down this tunnel for nearly an hour. Your legs are tired and you're
+                starting to reach the end of your patience. Suddenly, you spot a ladder which leads up to a metal hatch
+                in the ceiling. This must be your ticket out of here!
+                
+                A little careless as a result of how long you've been down here, you quickly bolt for the ladder.
+                Suddenly, your feet skid on a puddle of the sewage water at the foot of the ladder, making you crash to
+                the ground with a bang that reverberates through the entire tunnel. Shoot.
+                
+                Taking a deep breath, your brief recovery is interrupted as the sounds of sloshing water can be heard
+                behind you. Turning your head, you see a figure emerge from the sewer water, covered in debris and
+                dripping sewage.
+                """, new Choice[]{choice0}, 6, emptyFunc);
+
+        choice0 = new Choice("Stand up!", -1, 7);
+        Prompt Prompt7 = new Prompt("""
+                emptytext
                 """, new Choice[]{choice0}, 6, emptyFunc);
 
 
-        this.prompts = new Prompt[]{Prompt0, Prompt1, Prompt2, Prompt3, Prompt4, Prompt5, Prompt6};
+        this.prompts = new Prompt[]{Prompt0, Prompt1, Prompt2, Prompt3, Prompt4, Prompt5, Prompt6, Prompt7};
     }
 
     public AllPrompts()

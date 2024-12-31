@@ -71,8 +71,8 @@ public class Player {
     {
         if(guarding)
         {
-            System.out.printf("Sheesh, blocking that attack shaved off the edge, only hurting you for %d damage!\n", amount / 2);
-            health -= amount / 2;
+            System.out.printf("Sheesh, blocking that attack shaved off the edge, only hurting you for %d damage!\n", amount / 4);
+            health -= amount / 4;
         }
         else
         {
