@@ -10,6 +10,9 @@ public class AllPrompts {
 
         Choice choice0 = new Choice("Search your surroundings.", -1, 1);
         Choice choice1 = new Choice("Call for help.", 0, 2);
+        Choice choice2 = new Choice("PLACEHOLDER DO NOT USE WITHOUT REDEFINING", -1, -1);
+        Choice choice3 = new Choice("PLACEHOLDER DO NOT USE WITHOUT REDEFINING", -1, -1);
+
         Prompt Prompt0 = new Prompt("""
                You open your eyes, the smell of rot invading your nostrils.
                As your blurry vision adjusts to the dank setting, you find yourself inside a sewage system,
@@ -84,13 +87,67 @@ public class AllPrompts {
                 dripping sewage.
                 """, new Choice[]{choice0}, 6, emptyFunc);
 
-        choice0 = new Choice("Stand up!", -1, 7);
+        choice0 = new Choice("Begin walking to the village.", -1, 14);
+        choice1 = new Choice("This is too scary, go back down the hatch.", -1, 9);
+        choice2 = new Choice("Bask in the sun.", -1, 8);
         Prompt Prompt7 = new Prompt("""
-                emptytext
+                OH, FINALLY. You open the hatch and feel a cool breeze waft by. Taking in a deep whiff of the fresh, crisp air,
+                you climb the rest of the way out and look around. Strange. You appear to be far from any sort of civilization.
+                Apart from a small village in the distance, all you can see is grass and a distant, thick forest.
+                
+                It seems to be the middle of the day, so you have plenty of time to figure out what to do next.
+                """, new Choice[]{choice0, choice1, choice2}, 6, emptyFunc);
+
+        choice0 = new Choice("Keep basking in the sun.", -1, 11);
+        choice1 = new Choice("Begin walking to the village.", -1, 14);
+        Prompt Prompt8 = new Prompt("""
+                Yea, you deserve this break after what you just went through.
+                
+                You lay your back against the grass, closing your eyes as you listen to the sound of the breeze
+                brushing against the grass. Serene.
+                """, new Choice[]{choice0, choice1}, 6, emptyFunc);
+
+        choice0 = new Choice("Begin walking to the village.", -1, 14);
+        choice1 = new Choice("Bask in the sun.", -1, 8);
+        Prompt Prompt9 = new Prompt("""
+                No. You aren't going back down there.
+                """, new Choice[]{choice0, choice1}, 6, emptyFunc);
+
+        Prompt Prompt10 = new Prompt("""
+                This will display when the user wants to go to the village.
+                """, new Choice[]{choice0}, 6, emptyFunc);
+
+        choice0 = new Choice("Zzz...", 3, 13);
+        choice1 = new Choice("No! Fight sleep!", -1, 12);
+        Prompt Prompt11 = new Prompt("""
+                You've got all the time in the world, right? Might as well enjoy it while you can.
+                
+                Ah, the sun feels so nice, so warm...
+                You feel yourself start to drift off...
+                """, new Choice[]{choice0, choice1}, 6, emptyFunc);
+
+        choice0 = new Choice("Set out for the village.", -1, 14);
+        Prompt Prompt12 = new Prompt("""
+                "No!" you cry out as you slap yourself across the face. Ow.
+                """, new Choice[]{choice0}, 6, new PromptFunction[]{new HealthPromptFunction(-1)});
+
+        choice0 = new Choice("Set out for the village.", -1, 14);
+        Prompt Prompt13 = new Prompt("""
+                It's far too late to be staying out here. You need to get to the village as soon as possible.
+                """, new Choice[]{choice0}, 6, emptyFunc);
+
+        choice0 = new Choice("placeholder text", -1, 14);
+        Prompt Prompt14 = new Prompt("""
+                END OF TEST
                 """, new Choice[]{choice0}, 6, emptyFunc);
 
 
-        this.prompts = new Prompt[]{Prompt0, Prompt1, Prompt2, Prompt3, Prompt4, Prompt5, Prompt6, Prompt7};
+        this.prompts = new Prompt[]
+                {
+                        Prompt0, Prompt1, Prompt2, Prompt3, Prompt4, Prompt5,
+                        Prompt6, Prompt7, Prompt8, Prompt9, Prompt10, Prompt11,
+                        Prompt12, Prompt13, Prompt14
+                };
     }
 
     public AllPrompts()
