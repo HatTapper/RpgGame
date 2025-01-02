@@ -16,9 +16,10 @@ public class Main {
         PromptManager promptManager = new PromptManager();
 
         // use these for testing
+        //player.addSkill(new SkillDoubleHit());
         //player.addSkill(new SkillParry());
+        player.addSkill(new SkillHeal());
         //promptManager.chooseNextPrompt(7);
-        // this comment
 
         // GAME LOOP
         while(playing) {

@@ -18,6 +18,7 @@ public class Player {
     private SkillEnums activeSkill;                   // the current skill that the player is using, important for status-based skills
     private ArrayList<Skill> skills;                  // the list of skills the player has access to
     private Map<SkillEnums, Integer> skillCooldowns;  // hashmap containing skills on cooldown, decrements every full turn in an encounter
+    private int money;                                // the amount of money the player has
 
     // calculates the experience needed to get to the next level, scales linearly in relation to player's level
     private int calculateExperienceToNextLevel()
@@ -41,6 +42,7 @@ public class Player {
         this.skills = new ArrayList<Skill>();
         this.activeSkill = SkillEnums.NONE;
         this.skillCooldowns = new HashMap<>();
+        this.money = 10;
     }
 
     // displays the player's stats to the user
@@ -52,6 +54,10 @@ public class Player {
         System.out.println("Damage: " + weapon.getDamage(this));
         System.out.println("Experience: " + experience);
         System.out.println("Experience to next level: " + experienceToNextLevel);
+        System.out.println("Defense: " + defense);
+        System.out.println("Money: " + money);
+        System.out.println();
+        displaySkills();
     }
 
     // displays the player's skills to the user
@@ -97,6 +103,8 @@ public class Player {
 
     public Weapon getWeapon()
         {return weapon;}
+    public void setWeapon(Weapon weapon)
+        { this.weapon = weapon; }
 
     public int getHealth()
         {return health;}
@@ -117,6 +125,14 @@ public class Player {
         { return skills; }
     public void addSkill(Skill skill)
         { skills.add(skill); }
+
+    public int getMoney()
+        { return money; }
+    public void setMoney(int money)
+    {
+        this.money = money;
+        if(this.money < 0) this.money = 0;
+    }
 
     public void guard(boolean guard)
         {guarding = guard;}

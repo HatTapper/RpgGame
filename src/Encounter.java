@@ -93,7 +93,7 @@ public class Encounter {
                         }
 
                         // use skill if it's off cooldown
-                        skill.useSkill(player);
+                        skill.useSkill(player, enemy);
                         break;
 
                     } catch (Exception ignored)

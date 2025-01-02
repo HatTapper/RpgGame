@@ -5,7 +5,7 @@ public abstract class Skill {
     public int cooldown; // the amount of turns it will be on cooldown for when used
     public SkillEnums skillEnum; // the SkillEnum equivalent of the skill
 
-    public abstract void useSkill(Player player);
+    public abstract void useSkill(Player player, Enemy enemy);
     public abstract String getName();
     public abstract void printDescription();
 }

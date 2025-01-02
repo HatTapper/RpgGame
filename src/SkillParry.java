@@ -9,7 +9,7 @@ public class SkillParry extends Skill {
     }
 
     @Override
-    public void useSkill(Player player) {
+    public void useSkill(Player player, Enemy _enemy) {
         System.out.println("""
                 You take a step back, watching the enemy's movements carefully.
                 """);

@@ -137,23 +137,23 @@ public class AllPrompts {
                 "No!" you cry out as you slap yourself across the face. Ow.
                 """, new Choice[]{choice0}, 6, new PromptFunction[]{new HealthPromptFunction(-1)});
 
-        choice0 = new Choice("Set out for the village.", -1, 14);
+        choice0 = new Choice("Set out for the village.", -1, 19);
         Prompt Prompt13 = new Prompt("""
                 It's far too late to be staying out here. You need to get to the village as soon as possible.
                 """, new Choice[]{choice0}, 6, emptyFunc);
 
         choice0 = new Choice("Go to the inn.", -1, 15);
-        choice1 = new Choice("Go to the shop.", -1, 14);
-        choice2 = new Choice("Go to the library.", -1, 14);
+        choice1 = new Choice("Go to the shop.", -1, 16);
+        choice2 = new Choice("Go to the library.", -1, 20);
         Prompt Prompt14 = new Prompt("""
                 Upon reaching the village, you can see the bustle of people walking around. Nobody seems to pay any mind
                 to your presence. Apart from a bunch of what looks like normal houses, you spot a few buildings that
                 you could check out.
                 """, new Choice[]{choice0, choice1, choice2}, 6, emptyFunc);
 
-        choice0 = new Choice("Wait for the owner.", -1, 14);
-        choice1 = new Choice("Go to the shop.", -1, 14);
-        choice2 = new Choice("Go to the library.", -1, 14);
+        choice0 = new Choice("Wait for the owner.", -1, 19);
+        choice1 = new Choice("Go to the shop.", -1, 16);
+        choice2 = new Choice("Go to the library.", -1, 20);
         Prompt Prompt15 = new Prompt("""
                 Inside the inn, you see a desk with a sign hanging from the front of it.
                 
@@ -164,12 +164,67 @@ public class AllPrompts {
                 you'd miss out on exploring the rest of the village if you did.
                 """, new Choice[]{choice0, choice1, choice2}, 6, emptyFunc);
 
+        choice0 = new Choice("Buy the sword (-5 silver)", -1, 17);
+        choice1 = new Choice("Buy the shield (-5 silver)", -1, 18);
+        Prompt Prompt16 = new Prompt("""
+                You're greeted warmly by the shopkeeper who quickly recognizes you as a stranger. You scan the shelves
+                for anything you could make use of.
+                
+                There is a sword hanging from the wall. It looks to be of decent quality and would surely be better
+                than your fists.
+                
+                On a table, you can see a wooden shield lined with steel. That would give you a chance to defend yourself.
+                
+                Pulling out your pouch, you check the prices again. Seeing that inns don't tend to be free, you decide that
+                you'll have to pick between the two options such that you'll still have 5 silver left over for the inn.
+                """, new Choice[]{choice0, choice1, choice2}, 6, emptyFunc);
+
+        choice0 = new Choice("Go to the inn.", -1, 19);
+        Prompt Prompt17 = new Prompt("""
+                Nice, a new weapon. You put it in your inventory and continue on your way. It seems to be getting late.
+                You should go to the inn.
+                """, new Choice[]{choice0}, 6,
+                new PromptFunction[]{new WeaponPromptFunction(new Sword()), new MoneyPromptFunction(-5), new SkillPromptFunction(new SkillDoubleHit())});
+
+        choice0 = new Choice("Go to the inn.", -1, 19);
+        Prompt Prompt18 = new Prompt("""
+                Nice, a new shield. You put it in your inventory and continue on your way. It seems to be getting late.
+                You should go to the inn.
+                """, new Choice[]{choice0}, 6,
+                new PromptFunction[]{new DefensePromptFunction(10), new MoneyPromptFunction(-5), new SkillPromptFunction(new SkillParry())});
+
+        choice0 = new Choice("Sleep.", -1, 21);
+        Prompt Prompt19 = new Prompt("""
+                You pay the 5 silver coin cost to take a room for the night at the inn. You enter the room and
+                immediately collapse onto the soft mattress. After everything that's been going on today, you feel refreshed and
+                just want to sleep. You'll figure out what to do tomorrow.
+                """, new Choice[]{choice0}, 6,
+                new PromptFunction[]{new MoneyPromptFunction(-5), new HealthPromptFunction(999)});
+
+        choice0 = new Choice("Go to the inn.", -1, 19);
+        Prompt Prompt20 = new Prompt("""
+                The library seems to be entirely empty. Well, of people. There's no lack of books. You take a look at
+                one of them that appears to be about battle tactics. Some of the stuff in here actually makes a lot of sense...
+                The book offers countless tips and tricks on defending yourself in battle, even delving into healing magic!
+                
+                After you finally manage to take your eyes off the words, you realize it's gotten late. Well, at least
+                you spent your time doing something productive before going to the inn...
+                """, new Choice[]{choice0}, 6,
+                new PromptFunction[]{new DamagePromptFunction(2), new DefensePromptFunction(2), new SkillPromptFunction(new SkillHeal())});
+
+        choice0 = new Choice("placeholder", -1, 17);
+        Prompt Prompt21 = new Prompt("""
+                PLACEHOLDER TEXT
+                """, new Choice[]{choice0}, 6, emptyFunc);
+
+
         // structure to store all the prompts to be accessed by the prompt manager later on
         this.prompts = new Prompt[]
                 {
                         Prompt0, Prompt1, Prompt2, Prompt3, Prompt4, Prompt5,
                         Prompt6, Prompt7, Prompt8, Prompt9, Prompt10, Prompt11,
-                        Prompt12, Prompt13, Prompt14, Prompt15,
+                        Prompt12, Prompt13, Prompt14, Prompt15, Prompt16, Prompt17,
+                        Prompt18, Prompt19, Prompt20, Prompt21,
                 };
     }
 
