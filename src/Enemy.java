@@ -1,5 +1,7 @@
 // abstract class for enemies in the game
 
+import java.util.Random;
+
 public abstract class Enemy {
     public String name;          // enemy's name
     public int health;           // enemy's health
@@ -20,8 +22,30 @@ public abstract class Enemy {
         this.experienceGiven = experienceGiven;
     }
 
+    public void attack(Player player)
+    {
+        Random rand = new Random();
+        rand.setSeed(System.currentTimeMillis());
+        if(rand.nextDouble(0, 1) < criticalChance)
+        {
+            printCriticalAttack();
+            player.takeDamage(damage * 2);
+
+            if(player.getActiveSkill() == SkillEnums.PARRY)
+            {
+                printParry();
+                takeDamage(damage);
+            }
+        }
+        else {
+            printStandardAttack();
+            player.takeDamage(damage);
+        }
+    }
     // attacks the player and deals damage
-    public abstract void attack(Player player);
+    public abstract void printStandardAttack();
+    public abstract void printCriticalAttack();
+    public abstract void printParry();
 
     // takes damage depending on the amount given
     public abstract void takeDamage(int damage);

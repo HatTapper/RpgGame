@@ -19,24 +19,19 @@ public class Hyena extends Enemy {
     }
 
     @Override
-    public void attack(Player player) {
-        Random rand = new Random();
-        rand.setSeed(678953245);
-        if(rand.nextDouble(0, 1) < criticalChance)
-        {
-            System.out.println("CRITICAL HIT!\nThe hyena zips past your defenses, biting you hard!");
-            player.takeDamage(damage * 2);
-
-            if(player.getActiveSkill() == SkillEnums.PARRY)
-            {
-                System.out.printf("The hyena is stunned by your parry, taking %d damage!", damage);
-                takeDamage(damage);
-            }
-        }
-        else {
-            System.out.println("The hyena lands a blow with its claws.");
-            player.takeDamage(damage);
-        }
+    public void printStandardAttack()
+    {
+        System.out.println("The hyena lands a blow with its claws.");
+    }
+    @Override
+    public void printCriticalAttack()
+    {
+        System.out.println("CRITICAL HIT!\nThe hyena zips past your defenses, biting you hard!");
+    }
+    @Override
+    public void printParry()
+    {
+        System.out.printf("The hyena is stunned by your parry, taking %d damage!", damage);
     }
 
     public void takeDamage(int damage) {

@@ -6,25 +6,19 @@ public class Rat extends Enemy {
     }
 
     @Override
-    public void attack(Player player)
+    public void printStandardAttack()
     {
-        Random rand = new Random();
-        rand.setSeed(1256478352);
-        if(rand.nextDouble(0, 1) < criticalChance)
-        {
-            System.out.println("CRITICAL HIT!\nThe rat clawed at your ankle, leaving deep cuts!");
-            player.takeDamage(damage * 2);
-
-            if(player.getActiveSkill() == SkillEnums.PARRY)
-            {
-                System.out.printf("The rat is stunned by your parry, taking %d damage!", damage);
-                takeDamage(damage);
-            }
-        }
-        else {
-            System.out.println("The rat charges forward and bites!");
-            player.takeDamage(damage);
-        }
+        System.out.println("The rat charges forward and bites!");
+    }
+    @Override
+    public void printCriticalAttack()
+    {
+        System.out.println("CRITICAL HIT!\nThe rat clawed at your ankle, leaving deep cuts!");
+    }
+    @Override
+    public void printParry()
+    {
+        System.out.printf("The rat is stunned by your parry, taking %d damage!", damage);
     }
 
     @Override

@@ -7,11 +7,22 @@ public class SewageBeast extends Enemy {
     }
 
     @Override
-    public void attack(Player player) {
+    public void printStandardAttack()
+    {
         System.out.println("The beast throws itself at you! Part of it falls off in the process.\nThe beast loses 3 defense!");
         defense -= 3;
         if(defense <= 0) {defense = 0;}
-        player.takeDamage(damage);
+    }
+
+    @Override
+    public void printCriticalAttack() {
+        // this will never be run as critical chance is 0%
+    }
+
+    @Override
+    public void printParry()
+    {
+        // this will never be run as critical chance is 0%
     }
 
     @Override
