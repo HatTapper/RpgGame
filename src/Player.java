@@ -153,8 +153,7 @@ public class Player {
             skillCooldowns.put(entry.getKey(), entry.getValue() - 1);
             if(entry.getValue() <= 0)
             {
-                // remove entry if cooldown has reached 0
-                skillCooldowns.remove(entry.getKey());
+                skillCooldowns.put(entry.getKey(), 0);
             }
         }
     }
