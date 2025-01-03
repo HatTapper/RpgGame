@@ -18,7 +18,7 @@ public class Main {
         // use these for testing
         //player.addSkill(new SkillDoubleHit());
         //player.addSkill(new SkillParry());
-        player.addSkill(new SkillHeal());
+        //player.addSkill(new SkillHeal());
         //promptManager.chooseNextPrompt(7);
 
         // GAME LOOP
@@ -115,7 +115,7 @@ public class Main {
                     }
                     break;
                 case "q": // quits the game immediately
-                    System.out.println("Goodbye!");
+                    System.out.println("Ending the game early...\n");
                     playing = false;
                     break;
                 case "stats": // displays the player's stats
@@ -126,6 +126,14 @@ public class Main {
                     System.out.println("Invalid choice.");
                     scanner.nextLine();
             }
+        }
+
+        // game has ended
+        System.out.println("Game over! Your final score was: " + player.getScore());
+        if(player.doesPlayerHaveHighScore())
+        {
+            player.saveScore();
+            System.out.printf("NEW HIGHSCORE! Your highscore has been saved to %s\\data\\highscore.txt", System.getProperty("user.dir"));
         }
     }
 }

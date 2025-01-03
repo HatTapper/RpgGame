@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public class Player {
     private ArrayList<Skill> skills;                  // the list of skills the player has access to
     private Map<SkillEnums, Integer> skillCooldowns;  // hashmap containing skills on cooldown, decrements every full turn in an encounter
     private int money;                                // the amount of money the player has
+    private int score;                                // the "score" the player has earned. for now, this is just the total EXP gained
 
     // calculates the experience needed to get to the next level, scales linearly in relation to player's level
     private int calculateExperienceToNextLevel()
@@ -43,6 +45,7 @@ public class Player {
         this.activeSkill = SkillEnums.NONE;
         this.skillCooldowns = new HashMap<>();
         this.money = 10;
+        this.score = 0;
     }
 
     // displays the player's stats to the user
@@ -218,6 +221,7 @@ public class Player {
     public void giveExperience(int amount)
     {
         experience += amount;
+        score += amount;
         int currentLevel = level;
         while(experience >= experienceToNextLevel)
         {
@@ -230,4 +234,32 @@ public class Player {
             new Scanner(System.in).nextLine();
         }
     }
+
+    public void saveScore() {
+        String filePath = "data/highscore.txt";
+        String scoreToSave = Integer.toString(score);
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            writer.write(scoreToSave);
+        } catch (IOException e) {
+                e.printStackTrace();
+        }
+    }
+    public boolean doesPlayerHaveHighScore() {
+        String filePath = "data/highscore.txt";
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line = reader.readLine();
+            if(line != null)
+            {
+                int score = Integer.parseInt(line);
+                return score <= this.score;
+            }
+            return true;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public int getScore()
+        { return score; }
 }
