@@ -27,6 +27,10 @@ public class AllEncounters {
                 No matter, a hyena is rapidly approaching!
                 """, new Hyena());
 
-        this.encounters = new Encounter[]{encounter0, encounter1, encounter2, encounter3};
+        Encounter encounter4 = new Encounter(4, "", new Soldier());
+
+        Encounter encounter5 = new Encounter(5, "", new Knight());
+
+        this.encounters = new Encounter[]{encounter0, encounter1, encounter2, encounter3, encounter4, encounter5};
     }
 }
