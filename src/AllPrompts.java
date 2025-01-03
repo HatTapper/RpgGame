@@ -212,9 +212,30 @@ public class AllPrompts {
                 """, new Choice[]{choice0}, 6,
                 new PromptFunction[]{new DamagePromptFunction(2), new DefensePromptFunction(2), new SkillPromptFunction(new SkillHeal())});
 
-        choice0 = new Choice("placeholder", -1, 17);
+        choice0 = new Choice("Fight.", 4, 22);
         Prompt Prompt21 = new Prompt("""
-                PLACEHOLDER TEXT
+                You wake up to hear the sound of screaming, orders being shouted, and the clinking of armor.
+                Rubbing sleep out of your eyes, you get out of bed and quickly stand up.
+                
+                'No time to hesitate,' you say to yourself as your words quickly become truth due to an armored soldier
+                bursting through the door to your room almost immediately after. You have no clue what vendetta they have
+                against you, but it's time to fight.
+                """, new Choice[]{choice0}, 6, emptyFunc);
+
+        choice0 = new Choice("Fight.", 4, 23);
+        Prompt Prompt22 = new Prompt("""
+                As soon as one falls, another one charges forward, clearly dead-set on finishing you off.
+                """, new Choice[]{choice0}, 6, emptyFunc);
+
+        choice0 = new Choice("Fight.", 5, 24);
+        Prompt Prompt23 = new Prompt("""
+                This one falls, another one approaches. This guy looks different. The armored knight steps up to you coldly,
+                raising his great sword. You take a deep breath, feeling like you could take on anything in this moment.
+                """, new Choice[]{choice0}, 6, emptyFunc);
+
+        choice0 = new Choice("empty", -1, 24);
+        Prompt Prompt24 = new Prompt("""
+                this text will display after you defeat the knight
                 """, new Choice[]{choice0}, 6, emptyFunc);
 
 
@@ -224,7 +245,8 @@ public class AllPrompts {
                         Prompt0, Prompt1, Prompt2, Prompt3, Prompt4, Prompt5,
                         Prompt6, Prompt7, Prompt8, Prompt9, Prompt10, Prompt11,
                         Prompt12, Prompt13, Prompt14, Prompt15, Prompt16, Prompt17,
-                        Prompt18, Prompt19, Prompt20, Prompt21,
+                        Prompt18, Prompt19, Prompt20, Prompt21, Prompt22, Prompt23,
+                        Prompt24,
                 };
     }
 
