@@ -184,7 +184,7 @@ public class AllPrompts {
                 Nice, a new weapon. You put it in your inventory and continue on your way. It seems to be getting late.
                 You should go to the inn.
                 """, new Choice[]{choice0}, 6,
-                new PromptFunction[]{new WeaponPromptFunction(new Sword()), new MoneyPromptFunction(-5), new SkillPromptFunction(new SkillDoubleHit())});
+                new PromptFunction[]{new WeaponPromptFunction(new Sword()), new DefensePromptFunction(3), new MoneyPromptFunction(-5), new SkillPromptFunction(new SkillDoubleHit())});
 
         choice0 = new Choice("Go to the inn.", -1, 19);
         Prompt Prompt18 = new Prompt("""
@@ -210,7 +210,7 @@ public class AllPrompts {
                 After you finally manage to take your eyes off the words, you realize it's gotten late. Well, at least
                 you spent your time doing something productive before going to the inn...
                 """, new Choice[]{choice0}, 6,
-                new PromptFunction[]{new DamagePromptFunction(2), new DefensePromptFunction(2), new SkillPromptFunction(new SkillHeal())});
+                new PromptFunction[]{new DamagePromptFunction(5), new DefensePromptFunction(5), new SkillPromptFunction(new SkillHeal())});
 
         choice0 = new Choice("Fight.", 4, 22);
         Prompt Prompt21 = new Prompt("""
@@ -233,10 +233,29 @@ public class AllPrompts {
                 raising his great sword. You take a deep breath, feeling like you could take on anything in this moment.
                 """, new Choice[]{choice0}, 6, emptyFunc);
 
-        choice0 = new Choice("empty", -1, 24);
+        choice0 = new Choice("Figure out what to do next.", -1, 25);
         Prompt Prompt24 = new Prompt("""
-                this text will display after you defeat the knight
-                """, new Choice[]{choice0}, 6, emptyFunc);
+                The knight topples to the ground. You walk past their body and head outside. You can see
+                that the soldiers ransacked the entire village. The library was set aflame and bodies of soldiers and
+                villagers alike were spread across the ground. The remaining soldiers saw the fallen knight behind you
+                and swiftly decided to retreat. Strange.
+                
+                The remaining villagers came out of their homes, spotting the remnants of your battle. The knight must've
+                been the leader of this attack, as the villagers praise and cheer. The innkeeper hurriedly steps out
+                behind you and returns you the money you spent on the room last night. Other villagers hand you money and
+                gifts as well. You feel stronger.
+                """, new Choice[]{choice0}, 6, new PromptFunction[]{new ExperiencePromptFunction(1000), new MoneyPromptFunction(100)});
+
+        choice0 = new Choice("Set out for the castle.", -1, 25);
+        Prompt Prompt25 = new Prompt("""
+                You ask the villagers about who those soldiers were, and where they came from. You learn that the kingdom
+                of Gaurde has a king that went rogue and ordered the destruction of everyone who opposed him. This village
+                appeared to be in the middle of the crossfire. You're not sure if the king had any good reason to be doing
+                this, but wreaking such destruction doesn't make any sense if it were for a good cause. You decided that
+                you were going to go take on the king and defeat him in battle.
+                
+                The villagers cheered your resolution, wishing you good luck for your journey.
+                """, new Choice[]{choice0}, 6, new PromptFunction[]{new ExperiencePromptFunction(1000), new MoneyPromptFunction(100)});
 
 
         // structure to store all the prompts to be accessed by the prompt manager later on
@@ -246,7 +265,7 @@ public class AllPrompts {
                         Prompt6, Prompt7, Prompt8, Prompt9, Prompt10, Prompt11,
                         Prompt12, Prompt13, Prompt14, Prompt15, Prompt16, Prompt17,
                         Prompt18, Prompt19, Prompt20, Prompt21, Prompt22, Prompt23,
-                        Prompt24,
+                        Prompt24, Prompt25
                 };
     }
 
