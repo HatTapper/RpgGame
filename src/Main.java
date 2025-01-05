@@ -101,7 +101,6 @@ public class Main {
                     else
                     {
                         System.out.println("Invalid choice.");
-                        scanner.nextLine();
                     }
                     break;
                 case "3":
@@ -121,7 +120,6 @@ public class Main {
                     else
                     {
                         System.out.println("Invalid choice.");
-                        scanner.nextLine();
                     }
                     break;
                 case "4":
@@ -141,7 +139,6 @@ public class Main {
                     else
                     {
                         System.out.println("Invalid choice.");
-                        scanner.nextLine();
                     }
                     break;
                 case "q": // quits the game immediately
@@ -154,7 +151,6 @@ public class Main {
                     break;
                 default: // default case, ask for resubmit
                     System.out.println("Invalid choice.");
-                    scanner.nextLine();
             }
         }
 
