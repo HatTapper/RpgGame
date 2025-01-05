@@ -228,14 +228,11 @@ public class Player implements Serializable {
     {
         level++; // increment level
         defense += 1; // increase defense by 1
-        maxHealth += 10; // increase max hp by 10
+        maxHealth += (int) (10 * (1.1 * (level - 1))); // increase max hp by algorithm
         heal(9999); // restore to full hp
 
         experience = experience - experienceToNextLevel; // removes experience needed to level up
         experienceToNextLevel = calculateExperienceToNextLevel(); // find new value to level up
-
-        System.out.println("You leveled up! Here are your new stats:");
-        displayStats(); // displays updated stats to user
     }
 
     // gives experience to the player, leveling them up if they have enough experience
@@ -252,7 +249,7 @@ public class Player implements Serializable {
         // if player leveled up, wait for their input before proceeding
         if(currentLevel < level)
         {
-            new Scanner(System.in).nextLine();
+            System.out.println("You leveled up!");
         }
     }
 
