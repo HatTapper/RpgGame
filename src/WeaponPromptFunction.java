@@ -9,6 +9,5 @@ public class WeaponPromptFunction implements PromptFunction {
         player.setWeapon(weaponToGive);
 
         System.out.println("You have equipped a new weapon!");
-        weaponToGive.inspect();
     }
 }
