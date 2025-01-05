@@ -24,7 +24,7 @@ public class Prompt {
             fullText.append("\n").append(choiceCount++).append(") ").append(choice.text());
         }
 
-        System.out.println(fullText);
+        System.out.println(fullText + "\n");
     }
 
     public Choice getChoice(int choiceId)
