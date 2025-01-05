@@ -6,7 +6,7 @@ public class ExperiencePromptFunction implements PromptFunction {
     }
 
     public void runFunction(Player player) {
-        player.giveExperience(amount);
         System.out.printf("You gained %d experience!\n", amount);
+        player.giveExperience(amount);
     }
 }
