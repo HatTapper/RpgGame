@@ -6,7 +6,10 @@ import java.util.Map;
 
 // player class, created upon startup, the big class that stores all player data
 
-public class Player {
+public class Player implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
+
     private final String name;                        // the player's name
     private int level;                                // the player's level
     private int experience;                           // the player's experience (used in leveling up)
@@ -21,6 +24,8 @@ public class Player {
     private Map<SkillEnums, Integer> skillCooldowns;  // hashmap containing skills on cooldown, decrements every full turn in an encounter
     private int money;                                // the amount of money the player has
     private int score;                                // the "score" the player has earned. for now, this is just the total EXP gained
+
+    public int currentPrompt; // the current prompt id the player is on, used for pulling save data
 
     // calculates the experience needed to get to the next level, scales linearly in relation to player's level
     private int calculateExperienceToNextLevel()
@@ -47,6 +52,22 @@ public class Player {
         this.money = 10;
         this.score = 0;
     }
+
+    // deserialization constructor
+    /*public Player(String name, int level, int experience, int experienceToNextLevel, Weapon weapon, int health, int maxHealth, ArrayList<Skill> skills, Map<SkillEnums, Integer> skillCooldowns, int money, int score)
+    {
+        this.name = name;
+        this.level = level;
+        this.experience = experience;
+        this.experienceToNextLevel = experienceToNextLevel;
+        this.weapon = weapon;
+        this.health = health;
+        this.maxHealth = maxHealth;
+        this.skills = skills;
+        this.skillCooldowns = skillCooldowns;
+        this.money = money;
+        this.score = score;
+    }*/
 
     // displays the player's stats to the user
     public void displayStats()
@@ -206,6 +227,7 @@ public class Player {
     private void levelUp()
     {
         level++; // increment level
+        defense += 1; // increase defense by 1
         maxHealth += 10; // increase max hp by 10
         heal(9999); // restore to full hp
 
@@ -261,4 +283,6 @@ public class Player {
     }
     public int getScore()
         { return score; }
+
+
 }
