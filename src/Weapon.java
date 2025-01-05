@@ -1,6 +1,11 @@
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.Random;
 
-public abstract class Weapon {
+public abstract class Weapon implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
+
     public String name;
     public int damage;
     public double criticalChance;
