@@ -1,7 +1,7 @@
 public class Knight extends Enemy {
     public Knight()
     {
-        super("Knight", 250, 12, 10, 0.35, 750);
+        super("Knight", 200, 12, 10, 0.35, 750);
     }
 
     @Override
