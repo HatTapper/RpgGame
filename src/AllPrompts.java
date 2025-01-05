@@ -255,7 +255,7 @@ public class AllPrompts {
                 you were going to go take on the king and defeat him in battle.
                 
                 The villagers cheered your resolution, wishing you good luck for your journey.
-                """, new Choice[]{choice0}, 6, new PromptFunction[]{new ExperiencePromptFunction(1000), new MoneyPromptFunction(100)});
+                """, new Choice[]{choice0}, 6, emptyFunc);
 
 
         // structure to store all the prompts to be accessed by the prompt manager later on
