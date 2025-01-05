@@ -1,19 +1,43 @@
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args)
     {
+        SaveManager saveManager = new SaveManager();
+        Scanner scanner = new Scanner(System.in);
+        PromptManager promptManager = new PromptManager();
+
         // determines if game loop will keep going
         boolean playing = true;
 
-        // get name from user and create new player and prompt manager
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Welcome, traveller! Please enter your name.");
+        Player player = saveManager.getSaveData();
+        if(player == null)
+        {
+            System.out.println("Welcome, traveller! Please enter your name.");
 
-        String name = scanner.nextLine();
-        Player player = new Player(name);
-        PromptManager promptManager = new PromptManager();
+            String name = scanner.nextLine();
+            player = new Player(name);
+        }
+        else
+        {
+            System.out.println("A save file has been detected. If you do not want to use this save data, enter 'n'");
+            player.displayStats();
+            String choice = scanner.nextLine();
+
+            if(choice.equals("n"))
+            {
+                System.out.println("Welcome, traveller! Please enter your name.");
+
+                String name = scanner.nextLine();
+                player = new Player(name);
+            }
+            else
+            {
+                promptManager.chooseNextPrompt(player.currentPrompt);
+            }
+        }
 
         // use these for testing
         /*player.addSkill(new SkillDoubleHit());
@@ -51,6 +75,7 @@ public class Main {
                 case "1": // standard choice
                     currentChoice = promptManager.getCurrentPrompt().getChoice(1);
                     promptManager.chooseNextPrompt(currentChoice.nextPromptId());
+                    player.currentPrompt = currentChoice.nextPromptId();
 
                     if(currentChoice.encounterId() >= 0)
                     {
@@ -64,6 +89,7 @@ public class Main {
                     {
                         currentChoice = promptManager.getCurrentPrompt().getChoice(2);
                         promptManager.chooseNextPrompt(currentChoice.nextPromptId());
+                        player.currentPrompt = currentChoice.nextPromptId();
 
                         if(currentChoice.encounterId() >= 0)
                         {
@@ -83,6 +109,7 @@ public class Main {
                     {
                         currentChoice = promptManager.getCurrentPrompt().getChoice(3);
                         promptManager.chooseNextPrompt(currentChoice.nextPromptId());
+                        player.currentPrompt = currentChoice.nextPromptId();
 
                         if(currentChoice.encounterId() >= 0)
                         {
@@ -102,6 +129,7 @@ public class Main {
                     {
                         currentChoice = promptManager.getCurrentPrompt().getChoice(4);
                         promptManager.chooseNextPrompt(currentChoice.nextPromptId());
+                        player.currentPrompt = currentChoice.nextPromptId();
 
                         if(currentChoice.encounterId() >= 0)
                         {
@@ -135,7 +163,13 @@ public class Main {
         if(player.doesPlayerHaveHighScore())
         {
             player.saveScore();
-            System.out.printf("NEW HIGHSCORE! Your highscore has been saved to %s\\data\\highscore.txt", System.getProperty("user.dir"));
+            System.out.printf("NEW HIGHSCORE! Your highscore has been saved to %s\\data\\highscore.txt\n\n", System.getProperty("user.dir"));
         }
+        if(player.getHealth() <= 0)
+        {
+            player.currentPrompt -= 1;
+        }
+        player.heal(9999);
+        saveManager.saveData(player);
     }
 }
