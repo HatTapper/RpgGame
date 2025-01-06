@@ -1,4 +1,3 @@
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
@@ -44,8 +43,8 @@ public class Main {
         player.addSkill(new SkillParry());
         player.addSkill(new SkillHeal());
         player.setWeapon(new Sword());
-        promptManager.chooseNextPrompt(7);
-        player.giveExperience(500);*/
+        promptManager.chooseNextPrompt(25);
+        player.giveExperience(5000);*/
 
         // GAME LOOP
         while(playing) {
@@ -59,8 +58,9 @@ public class Main {
             }
 
             // displays the next prompt and runs its prompt function
-            promptManager.getCurrentPrompt().displayPrompt();
             promptManager.getCurrentPrompt().runFunction(player);
+            promptManager.getCurrentPrompt().displayPrompt();
+
 
             // grab player's choice
             String choice = scanner.nextLine();
