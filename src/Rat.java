@@ -22,10 +22,9 @@ public class Rat extends Enemy {
     }
 
     @Override
-    public void takeDamage(int damage)
+    public void printTakeDamage(int damage)
     {
         System.out.println("The rat squeaks in pain!\n");
-        health -= damage;
         if(health <= 0)
         {
             System.out.println("The rat collapses to the ground.");
