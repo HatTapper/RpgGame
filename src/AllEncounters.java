@@ -31,6 +31,13 @@ public class AllEncounters {
 
         Encounter encounter5 = new Encounter(5, "", new Knight());
 
-        this.encounters = new Encounter[]{encounter0, encounter1, encounter2, encounter3, encounter4, encounter5};
+        Encounter encounter6 = new Encounter(6, "", new Hyena());
+
+        Encounter encounter7 = new Encounter(7, "", new KnightGroup());
+
+        Encounter encounter8 = new Encounter(8, "", new King());
+
+        this.encounters = new Encounter[]{encounter0, encounter1, encounter2, encounter3, encounter4, encounter5,
+                                          encounter6, encounter7};
     }
 }
