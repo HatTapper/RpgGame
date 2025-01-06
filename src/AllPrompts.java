@@ -362,7 +362,7 @@ public class AllPrompts {
                 """, new Choice[]{choice0}, 6, emptyFunc);
 
         choice0 = new Choice("Take on the king!", -1, 38);
-        Prompt Prompt37 = new Prompt("""
+        Prompt Prompt38 = new Prompt("""
                 You see the king on his throne. He remains silent, his head hung low under the weight of his crown. His
                 armor glitters in the sunlight and almost looks like it vibrates the air surrounding it. Without saying
                 a word, he rises to face you, drawing a battle axe honed with the souls of thousands.
