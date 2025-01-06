@@ -3,4 +3,7 @@ public enum SkillEnums {
     NONE,
     DOUBLE_HIT,
     HEAL,
+    PIERCING,
+    WAR_CRY,
+    VAMPIRE,
 }
