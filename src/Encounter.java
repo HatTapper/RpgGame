@@ -7,10 +7,18 @@ public class Encounter {
     private final Enemy enemy;
     // the text that will be displayed at the beginning of the encounter
     private final String introText;
+    private final EnemyBoss boss;
 
     // constructor
     public Encounter(int encounterId, String introText, Enemy enemy) {
         this.enemy = enemy;
+        this.boss = null;
+        this.introText = introText;
+    }
+
+    public Encounter(int encounterId, String introText, EnemyBoss enemy) {
+        this.boss = enemy;
+        this.enemy = null;
         this.introText = introText;
     }
 
