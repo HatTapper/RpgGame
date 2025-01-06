@@ -24,10 +24,9 @@ public class Soldier extends Enemy {
     }
 
     @Override
-    public void takeDamage(int damage)
+    public void printTakeDamage(int damage)
     {
         System.out.println("The soldier takes the blow.\n");
-        health -= damage;
         if(health <= 0)
         {
             System.out.println("The soldier falls to the ground.");
