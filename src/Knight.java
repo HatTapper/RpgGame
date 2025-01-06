@@ -1,7 +1,7 @@
 public class Knight extends Enemy {
     public Knight()
     {
-        super("Knight", 200, 12, 10, 0.35, 750);
+        super("Knight", 200, 20, 10, 0.35, 750);
     }
 
     @Override
@@ -22,10 +22,9 @@ public class Knight extends Enemy {
     }
 
     @Override
-    public void takeDamage(int damage)
+    public void printTakeDamage(int damage)
     {
         System.out.println("The knight takes the blow.\n");
-        health -= damage;
         if(health <= 0)
         {
             System.out.println("Struggling to stand, the knight falls to the ground.");
