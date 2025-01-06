@@ -46,6 +46,11 @@ public class Encounter {
         // input
         Scanner scanner = new Scanner(System.in);
 
+        // save this to reset player stats to default after battle ends
+        int initialDamage = player.getWeapon().damage;
+        int initialDefense = player.getDefense();
+
+
         // used to manage when certain attributes are updated that are dependent on a full turn passing
         // a full turn in this context is both the player and the enemy committing an action
         boolean turnTaken = false;
@@ -97,10 +102,11 @@ public class Encounter {
                         break;
 
                     } catch (Exception ignored)
-                    {}
-                    // if player submitted a bad option, simply reset their turn
-                    System.out.println("Invalid choice.");
-                    continue;
+                    {
+                        // if player submitted a bad option, simply reset their turn
+                        System.out.println("Invalid choice.");
+                        continue;
+                    }
                 case "4": // inspects the enemy, does not take a full turn
                     enemy.inspect();
                     scanner.nextLine();
@@ -116,6 +122,12 @@ public class Encounter {
                 enemy.attack(player);
             }
         }
+        // encounter is over after this point
+
+        // reset player stats
+        player.setDefense(initialDefense);
+        player.setActiveSkill(SkillEnums.NONE);
+        player.getWeapon().damage = initialDamage;
 
         // if player survived the encounter, give them the experience from the enemy
         if(player.getHealth() > 0)
