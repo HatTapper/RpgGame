@@ -34,9 +34,8 @@ public class Hyena extends Enemy {
         System.out.printf("The hyena is stunned by your parry, taking %d damage!", damage);
     }
 
-    public void takeDamage(int damage) {
+    public void printTakeDamage(int damage) {
         System.out.println("The hyena whines!\n");
-        health -= damage;
         if(health <= 0)
         {
             System.out.println("With a defeated yelp, the hyena collapses.");
