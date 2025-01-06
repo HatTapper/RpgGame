@@ -42,13 +42,22 @@ public abstract class Enemy {
             player.takeDamage(damage);
         }
     }
+
+    public int getDefense() {
+        return defense;
+    }
+
+    public void takeDamage(int damage)
+    {
+        health -= (damage - defense);
+    }
     // attacks the player and deals damage
     public abstract void printStandardAttack();
     public abstract void printCriticalAttack();
     public abstract void printParry();
 
-    // takes damage depending on the amount given
-    public abstract void takeDamage(int damage);
+    // takes damage depending on what's given
+    public abstract void printTakeDamage(int damage);
 
     // displays the enemy's stats (and flavor text if provided in the child class)
     public abstract void inspect();
