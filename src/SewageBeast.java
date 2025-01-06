@@ -26,11 +26,8 @@ public class SewageBeast extends Enemy {
     }
 
     @Override
-    public void takeDamage(int damage) {
-        health -= damage;
-
+    public void printTakeDamage(int damage) {
         System.out.println("The creature flinches.\n");
-
         if(health <= 0)
         {
             System.out.println("Its structure deteriorating, it collapses back into the sewage, becoming one with the current.");
