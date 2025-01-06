@@ -30,7 +30,7 @@ public abstract class Weapon implements Serializable {
         int finalDamage = damage + player.getLevel() * 2;
         Random rand = new Random();
         rand.setSeed(System.currentTimeMillis());
-        if(rand.nextDouble(0, 1) < criticalChance)
+        if(rand.nextDouble(0.00, 1.00) < criticalChance)
         {
             finalDamage *= 2;
             if(finalDamage <= 0) finalDamage = 0;
