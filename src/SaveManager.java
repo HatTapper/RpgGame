@@ -28,7 +28,7 @@ public class SaveManager {
         }
     }
 
-    // checks if player data exists, if so, return the SaveData class, else null
+    // checks if player data exists, if so, return the deserialized player class, else null
     public Player getSaveData()
     {
         Player player = null;
