@@ -26,7 +26,7 @@ public abstract class Enemy {
     {
         Random rand = new Random();
         rand.setSeed(System.currentTimeMillis());
-        if(rand.nextDouble(0, 1) < criticalChance)
+        if(rand.nextDouble(0.00, 1.00) < criticalChance)
         {
             printCriticalAttack();
             player.takeDamage(damage * 2);
