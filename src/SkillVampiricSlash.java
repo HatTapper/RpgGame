@@ -20,6 +20,20 @@ public class SkillVampiricSlash extends Skill {
     }
 
     @Override
+    public void useSkill(Player player, EnemyBoss enemy) {
+        System.out.println("""
+                You take a step back, a red aura forming around the blade of your dagger...
+                
+                You lunge forward and slash, blood trailing the tip of your blade!
+                """);
+        player.setActiveSkill(SkillEnums.VAMPIRE);
+        player.addSkillCooldown(skillEnum, cooldown);
+
+        enemy.takeDamage((int) (player.getWeapon().damage * 1.5));
+        player.heal(player.getWeapon().damage);
+    }
+
+    @Override
     public String getName() {
         return name;
     }

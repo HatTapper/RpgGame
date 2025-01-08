@@ -7,4 +7,9 @@ public class Greatsword extends Weapon {
     public void printAttack(Player player, Enemy enemy) {
         System.out.println("You perform a devastating sweep attack!");
     }
+
+    @Override
+    public void printAttack(Player player, EnemyBoss enemy) {
+        System.out.println("You perform a devastating sweep attack!");
+    }
 }

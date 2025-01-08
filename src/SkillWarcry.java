@@ -19,6 +19,19 @@ public class SkillWarcry extends Skill {
     }
 
     @Override
+    public void useSkill(Player player, EnemyBoss enemy) {
+        System.out.println("""
+                You take a step back, shouting at the top of your lungs.
+                """);
+        player.setActiveSkill(SkillEnums.WAR_CRY);
+        player.addSkillCooldown(skillEnum, cooldown);
+
+        // this will allow defense to be negated entirely and instead deal a static 100 dmg
+        player.setDefense(player.getDefense() + 5);
+        player.getWeapon().damage += 5;
+    }
+
+    @Override
     public String getName() {
         return name;
     }

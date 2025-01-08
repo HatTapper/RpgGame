@@ -18,6 +18,15 @@ public class SkillParry extends Skill {
     }
 
     @Override
+    public void useSkill(Player player, EnemyBoss _enemy) {
+        System.out.println("""
+                You take a step back, watching the enemy's movements carefully.
+                """);
+        player.setActiveSkill(SkillEnums.PARRY);
+        player.addSkillCooldown(skillEnum, cooldown);
+    }
+
+    @Override
     public String getName() {
         return name;
     }

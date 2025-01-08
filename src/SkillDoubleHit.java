@@ -18,6 +18,18 @@ public class SkillDoubleHit extends Skill {
     }
 
     @Override
+    public void useSkill(Player player, EnemyBoss enemy) {
+        System.out.println("""
+                You take a step back, lunging forward and landing two savage strikes!
+                """);
+        player.setActiveSkill(SkillEnums.DOUBLE_HIT);
+        player.addSkillCooldown(skillEnum, cooldown);
+
+        player.getWeapon().attack(player, enemy);
+        player.getWeapon().attack(player, enemy);
+    }
+
+    @Override
     public String getName() {
         return name;
     }

@@ -7,4 +7,9 @@ public class Dagger extends Weapon {
     public void printAttack(Player player, Enemy enemy) {
         System.out.println("You swipe at the enemy's weakpoint!");
     }
+
+    @Override
+    public void printAttack(Player player, EnemyBoss enemy) {
+        System.out.println("You swipe at the enemy's weakpoint!");
+    }
 }

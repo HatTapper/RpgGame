@@ -12,6 +12,7 @@ public abstract class Skill implements Serializable {
     public SkillEnums skillEnum; // the SkillEnum equivalent of the skill
 
     public abstract void useSkill(Player player, Enemy enemy);
+    public abstract void useSkill(Player player, EnemyBoss enemy);
     public abstract String getName();
     public abstract void printDescription();
 }

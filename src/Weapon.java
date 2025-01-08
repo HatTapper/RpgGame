@@ -45,7 +45,29 @@ public abstract class Weapon implements Serializable {
         }
     }
 
+    public void attack(Player player, EnemyBoss enemy)
+    {
+        printAttack(player, enemy);
+        int finalDamage = damage + player.getLevel() * 2;
+        Random rand = new Random();
+        rand.setSeed(System.currentTimeMillis());
+        if(rand.nextDouble(0.00, 1.00) < criticalChance)
+        {
+            finalDamage *= 2;
+            if(finalDamage <= 0) finalDamage = 0;
+            System.out.printf("CRITICAL HIT!\nYou dealt %d damage!\n", finalDamage - enemy.defense);
+            enemy.takeDamage(finalDamage);
+        }
+        else
+        {
+            if(finalDamage <= 0) finalDamage = 0;
+            System.out.printf("You dealt %d damage!\n", finalDamage - enemy.defense);
+            enemy.takeDamage(finalDamage);
+        }
+    }
+
     public abstract void printAttack(Player player, Enemy enemy);
+    public abstract void printAttack(Player player, EnemyBoss enemy);
     public int getDamage(Player player)
     {
         return damage + player.getLevel() * 2;

@@ -19,6 +19,19 @@ public class SkillHeal extends Skill {
     }
 
     @Override
+    public void useSkill(Player player, EnemyBoss enemy) {
+        System.out.println("""
+                You take a step back, clasping your hands together and mumbling a short phrase...
+                
+                You get healed for 50 health points!
+                """);
+        player.setActiveSkill(SkillEnums.HEAL);
+        player.addSkillCooldown(skillEnum, cooldown);
+
+        player.heal(50);
+    }
+
+    @Override
     public String getName() {
         return name;
     }

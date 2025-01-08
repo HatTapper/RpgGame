@@ -1,18 +1,14 @@
 import java.util.Scanner;
 
-// wrapper class for all encounters in the game
-// handles the battle menu and the order of turns
-public class Encounter {
+public class EncounterBoss {
     // the enemy the player is fighting
-    private final Enemy enemy;
+    private final EnemyBoss enemy;
     // the text that will be displayed at the beginning of the encounter
     private final String introText;
-    private final EnemyBoss boss;
 
     // constructor
-    public Encounter(int encounterId, String introText, Enemy enemy) {
+    public EncounterBoss(int encounterId, String introText, EnemyBoss enemy) {
         this.enemy = enemy;
-        this.boss = null;
         this.introText = introText;
     }
 
@@ -27,7 +23,7 @@ public class Encounter {
     {
         Prompt prompt = new Prompt(String.format("""
                 
-                ||| IN BATTLE |||
+                ||| BOSS BATTLE |||
                 
                 %s: %d / %d HP
                 

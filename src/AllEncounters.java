@@ -2,6 +2,7 @@
 
 public class AllEncounters {
     public Encounter[] encounters;
+    public EncounterBoss boss;
 
     public AllEncounters() {
         Encounter encounter0 = new Encounter(0, """
@@ -35,9 +36,11 @@ public class AllEncounters {
 
         Encounter encounter7 = new Encounter(7, "", new KnightGroup());
 
-        Encounter encounter8 = new Encounter(8, "", new King());
+
 
         this.encounters = new Encounter[]{encounter0, encounter1, encounter2, encounter3, encounter4, encounter5,
                                           encounter6, encounter7};
+
+        this.boss = new EncounterBoss(8, "", new King());
     }
 }

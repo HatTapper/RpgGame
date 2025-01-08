@@ -2,8 +2,7 @@ import java.util.*;
 
 public class King extends EnemyBoss {
     private Phase phase = Phase.PHASE_1;
-    private Type type;
-    private TextHolder textHolder = new TextHolder();
+    private final TextHolder textHolder = new TextHolder();
     private final Scanner scanner = new Scanner(System.in);
     private final ArrayList<Skills> usedSkills = new ArrayList<>();
 
@@ -39,12 +38,20 @@ public class King extends EnemyBoss {
         // do standard attack if crit chance was not reached
         else {
             System.out.println(textHolder.getTextInContext(Type.STANDARD, phase));
+
+            // boss loses health in the final phase
+            if(phase == Phase.PHASE_3)
+            {
+                health -= 200;
+            }
             player.takeDamage(damage);
         }
     }
 
+    // will use skill if capable and skill hasn't been already used yet in battle
     public void useSkill(Player player)
     {
+        // does a damage down debuff when below 350 health in phase 1
         if(health < 350 && phase == Phase.PHASE_1 && !usedSkills.contains(Skills.DAMAGE_DOWN))
         {
             System.out.println(textHolder.getTextInContext(Skills.DAMAGE_DOWN));
@@ -52,6 +59,7 @@ public class King extends EnemyBoss {
             player.getWeapon().damage -= 10;
         }
 
+        // does a defense down debuff when below 650 health in phase 2
         if(health < 650 && phase == Phase.PHASE_2 && !usedSkills.contains(Skills.DEFENSE_DOWN))
         {
             System.out.println(textHolder.getTextInContext(Skills.DEFENSE_DOWN));
@@ -60,6 +68,7 @@ public class King extends EnemyBoss {
         }
     }
 
+    // checks if the criteria is met to transition to the next phase
     public void updatePhase()
     {
         if(phase == Phase.PHASE_1 && health < 150)
@@ -87,12 +96,32 @@ public class King extends EnemyBoss {
 
     @Override
     public void takeDamage(int damage) {
+        // prevents boss from taking any damage in phase 3
+        if(phase == Phase.PHASE_3)
+        {
+            return;
+        }
+        // standard damage logic
         health -= (damage - defense);
+
+        // prevents boss from dying early to allow for phase transitions to occur
+        if(health <= 0)
+        {
+            health = 1;
+        }
     }
 
     @Override
     public void inspect() {
-
+        System.out.printf("""
+                You've made it this far. No point stopping now.
+                
+                Name: %s
+                Health: %d / %d
+                Damage: %d
+                Defense: %d
+                Critical Hit Chance: %.2f%%
+                """, name, health, maxHealth, damage, defense, criticalChance * 100);
     }
 }
 
@@ -111,8 +140,8 @@ enum Skills {
 }
 
 class TextHolder {
-    private Map<Phase, Map<Type, String>> texts = new HashMap<>();
-    private Map<Skills, String> skillTexts = new HashMap<>();
+    private final Map<Phase, Map<Type, String>> texts = new HashMap<>();
+    private final Map<Skills, String> skillTexts = new HashMap<>();
 
     public TextHolder()
     {
@@ -145,6 +174,8 @@ class TextHolder {
 
         texts.get(Phase.PHASE_3).put(Type.STANDARD, """
                 Shadowy tendrils protrude from the king and flail wildly!
+                
+                The King loses 200 HP!
                 """);
 
 

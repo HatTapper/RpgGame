@@ -10,4 +10,10 @@ public class Fists extends Weapon {
     {
         System.out.println("Raising your arm, you throw a left hook!");
     }
+
+    @Override
+    public void printAttack(Player player, EnemyBoss enemy)
+    {
+        System.out.println("Raising your arm, you throw a left hook!");
+    }
 }
