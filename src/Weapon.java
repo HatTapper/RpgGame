@@ -28,19 +28,29 @@ public abstract class Weapon implements Serializable {
     {
         printAttack(player, enemy);
         int finalDamage = damage + player.getLevel() * 2;
+
+
+        if(finalDamage - enemy.defense <= 0)
+        {
+            finalDamage = 0;
+        }
+        else
+        {
+            finalDamage -= enemy.defense;
+        }
         Random rand = new Random();
         rand.setSeed(System.currentTimeMillis());
         if(rand.nextDouble(0.00, 1.00) < criticalChance)
         {
             finalDamage *= 2;
             if(finalDamage <= 0) finalDamage = 0;
-            System.out.printf("CRITICAL HIT!\nYou dealt %d damage!\n", finalDamage - enemy.defense);
+            System.out.printf("CRITICAL HIT!\nYou dealt %d damage!\n", finalDamage);
             enemy.takeDamage(finalDamage);
         }
         else
         {
             if(finalDamage <= 0) finalDamage = 0;
-            System.out.printf("You dealt %d damage!\n", finalDamage - enemy.defense);
+            System.out.printf("You dealt %d damage!\n", finalDamage);
             enemy.takeDamage(finalDamage);
         }
     }

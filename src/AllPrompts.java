@@ -351,7 +351,7 @@ public class AllPrompts {
                 room, its entrance shrouded by curtains.
                 """, new Choice[]{choice0}, 6, emptyFunc);
 
-        choice0 = new Choice("Take on the king!", -1, 38);
+        choice0 = new Choice("Take on the king!", 8, 38);
         Prompt Prompt37 = new Prompt("""
                 You see the king on his throne. He remains silent, his head hung low under the weight of his crown. His
                 armor glitters in the sunlight and almost looks like it vibrates the air surrounding it. Without saying
@@ -361,14 +361,14 @@ public class AllPrompts {
                 that this battle will be the toughest you've faced yet. And you wouldn't have it any other way.
                 """, new Choice[]{choice0}, 6, emptyFunc);
 
-        choice0 = new Choice("Take on the king!", -1, 38);
+        choice0 = new Choice("Yay!", -1, 39);
         Prompt Prompt38 = new Prompt("""
-                You see the king on his throne. He remains silent, his head hung low under the weight of his crown. His
-                armor glitters in the sunlight and almost looks like it vibrates the air surrounding it. Without saying
-                a word, he rises to face you, drawing a battle axe honed with the souls of thousands.
                 
-                Seeing how incredibly antagonistic he is, you're glad that you decided to fight him. You smirk, knowing
-                that this battle will be the toughest you've faced yet. And you wouldn't have it any other way.
+                You did it! You defeated the King! You take a deep breath, relieved that your self-imposed job is finally
+                over.
+                
+                You leave the large throne room, holding up the King's crown to the city. All of the guards drop their
+                weapons, now loyal to you.
                 """, new Choice[]{choice0}, 6, emptyFunc);
 
 
@@ -381,7 +381,7 @@ public class AllPrompts {
                         Prompt18, Prompt19, Prompt20, Prompt21, Prompt22, Prompt23,
                         Prompt24, Prompt25, Prompt26, Prompt27, Prompt28, Prompt29,
                         Prompt30, Prompt31, Prompt32, Prompt33, Prompt34, Prompt35,
-                        Prompt36, Prompt37, Prompt38,
+                        Prompt36, Prompt37, Prompt38
                 };
     }
 

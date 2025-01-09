@@ -42,7 +42,7 @@ public class King extends EnemyBoss {
             // boss loses health in the final phase
             if(phase == Phase.PHASE_3)
             {
-                health -= 200;
+                health -= 2000;
             }
             player.takeDamage(damage);
         }
@@ -84,6 +84,10 @@ public class King extends EnemyBoss {
         }
         else if (phase == Phase.PHASE_2 && health < 200) {
             phase = Phase.PHASE_3;
+            System.out.println(textHolder.getTextInContext(Skills.PHASE_3_TRANSITION));
+            maxHealth = 10000;
+            health = maxHealth;
+            damage = 100;
 
             scanner.nextLine();
         }
@@ -102,6 +106,10 @@ public class King extends EnemyBoss {
             return;
         }
         // standard damage logic
+        if(damage - defense < 0)
+        {
+            return;
+        }
         health -= (damage - defense);
 
         // prevents boss from dying early to allow for phase transitions to occur

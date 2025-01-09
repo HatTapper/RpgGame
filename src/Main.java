@@ -1,12 +1,24 @@
 import java.util.Scanner;
 
 public class Main {
+    private static void endGame(Player player, PromptManager promptManager, Choice currentChoice)
+    {
+        EncounterBoss finalEncounter = new EncounterBoss(8, "", new King());
+        finalEncounter.printIntro();
+        finalEncounter.beginBattleLoop(player);
+
+        promptManager.chooseNextPrompt(currentChoice.nextPromptId());
+        promptManager.getCurrentPrompt().displayPrompt();
+        new Scanner(System.in).nextLine();
+    }
+
 
     public static void main(String[] args)
     {
-        SaveManager saveManager = new SaveManager();
-        Scanner scanner = new Scanner(System.in);
-        PromptManager promptManager = new PromptManager();
+        final int BOSS_ENCOUNTER_ID = 8;
+        final SaveManager saveManager = new SaveManager();
+        final Scanner scanner = new Scanner(System.in);
+        final PromptManager promptManager = new PromptManager();
 
         // determines if game loop will keep going
         boolean playing = true;
@@ -39,12 +51,13 @@ public class Main {
         }
 
         // use these for testing
-        /*player.addSkill(new SkillDoubleHit());
+        player.addSkill(new SkillDoubleHit());
         player.addSkill(new SkillParry());
         player.addSkill(new SkillHeal());
-        player.setWeapon(new Sword());
-        promptManager.chooseNextPrompt(25);
-        player.giveExperience(5000);*/
+        player.addSkill(new SkillPierce());
+        player.setWeapon(new Greatsword());
+        promptManager.chooseNextPrompt(37);
+        player.giveExperience(50000);
 
         // GAME LOOP
         while(playing) {
@@ -79,6 +92,12 @@ public class Main {
 
                     if(currentChoice.encounterId() >= 0)
                     {
+                        if(currentChoice.encounterId() == BOSS_ENCOUNTER_ID)
+                        {
+                            endGame(player, promptManager, currentChoice);
+                            playing = false;
+                            break;
+                        }
                         Encounter encounter = new AllEncounters().encounters[currentChoice.encounterId()];
                         encounter.printIntro();
                         encounter.beginBattleLoop(player);
