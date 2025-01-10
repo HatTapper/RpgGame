@@ -7,6 +7,11 @@ public class Main {
         finalEncounter.printIntro();
         finalEncounter.beginBattleLoop(player);
 
+        if(player.getHealth() <= 0)
+        {
+            return;
+        }
+
         promptManager.chooseNextPrompt(currentChoice.nextPromptId());
         promptManager.getCurrentPrompt().displayPrompt();
         new Scanner(System.in).nextLine();
@@ -51,13 +56,13 @@ public class Main {
         }
 
         // use these for testing
-        player.addSkill(new SkillDoubleHit());
+        /*player.addSkill(new SkillDoubleHit());
         player.addSkill(new SkillParry());
         player.addSkill(new SkillHeal());
         player.addSkill(new SkillPierce());
         player.setWeapon(new Greatsword());
         promptManager.chooseNextPrompt(37);
-        player.giveExperience(50000);
+        player.giveExperience(50000);*/
 
         // GAME LOOP
         while(playing) {

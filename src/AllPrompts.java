@@ -184,7 +184,7 @@ public class AllPrompts {
                 Nice, a new weapon. You put it in your inventory and continue on your way. It seems to be getting late.
                 You should go to the inn.
                 """, new Choice[]{choice0}, 6,
-                new PromptFunction[]{new WeaponPromptFunction(new Sword()), new DefensePromptFunction(3), new MoneyPromptFunction(-5), new SkillPromptFunction(new SkillDoubleHit())});
+                new PromptFunction[]{new WeaponPromptFunction(new Sword()), new DefensePromptFunction(1), new MoneyPromptFunction(-5), new SkillPromptFunction(new SkillDoubleHit())});
 
         choice0 = new Choice("Go to the inn.", -1, 19);
         Prompt Prompt18 = new Prompt("""
@@ -210,7 +210,7 @@ public class AllPrompts {
                 After you finally manage to take your eyes off the words, you realize it's gotten late. Well, at least
                 you spent your time doing something productive before going to the inn...
                 """, new Choice[]{choice0}, 6,
-                new PromptFunction[]{new DamagePromptFunction(5), new DefensePromptFunction(5), new SkillPromptFunction(new SkillHeal())});
+                new PromptFunction[]{new DamagePromptFunction(10), new DefensePromptFunction(5), new SkillPromptFunction(new SkillHeal())});
 
         choice0 = new Choice("Fight.", 4, 22);
         Prompt Prompt21 = new Prompt("""
@@ -368,7 +368,10 @@ public class AllPrompts {
                 over.
                 
                 You leave the large throne room, holding up the King's crown to the city. All of the guards drop their
-                weapons, now loyal to you.
+                weapons and fall to their knees, bowing down to you. Wow, this is a lot of power to suddenly just take.
+                Regardless, you did it. You saved the land from a tyrannical King.
+                
+                Congratulations!
                 """, new Choice[]{choice0}, 6, emptyFunc);
 
 

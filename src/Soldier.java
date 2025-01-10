@@ -3,7 +3,7 @@ import java.util.Random;
 public class Soldier extends Enemy {
     public Soldier()
     {
-        super("Soldier", 100, 10, 5, 0.25, 200);
+        super("Soldier", 100, 12, 5, 0.25, 200);
     }
 
     @Override

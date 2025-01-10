@@ -17,8 +17,8 @@ public class Knight extends Enemy {
     @Override
     public void printParry()
     {
-        System.out.printf("The knight quickly recovers from the parry, focusing on guarding himself and only taking %d damage.\nHis defense goes up by 2!\n", damage / 2);
-        defense += 2;
+        System.out.printf("The knight quickly recovers from the parry, taking %d damage.\nHis defense goes down by 2!\n", damage);
+        defense -= 2;
     }
 
     @Override

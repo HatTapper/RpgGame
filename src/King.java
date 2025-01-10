@@ -7,7 +7,7 @@ public class King extends EnemyBoss {
     private final ArrayList<Skills> usedSkills = new ArrayList<>();
 
     public King() {
-        super("The King", 500, 15, 50, 0.0, 9999);
+        super("The King", 500, 20, 50, 0.0, 9999);
     }
 
     @Override
@@ -88,6 +88,7 @@ public class King extends EnemyBoss {
             maxHealth = 10000;
             health = maxHealth;
             damage = 100;
+            defense = 9999;
 
             scanner.nextLine();
         }

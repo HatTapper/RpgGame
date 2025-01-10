@@ -49,6 +49,7 @@ public abstract class Enemy {
 
     public void takeDamage(int damage)
     {
+        if(damage - defense < 0) damage = 0;
         health -= (damage - defense);
     }
     // attacks the player and deals damage

@@ -190,6 +190,9 @@ public class Player implements Serializable {
     // causes the player to take damage
     public void takeDamage(int amount)
     {
+        amount = amount - defense;
+        if(amount < 0) amount = 0;
+
         // if player is parrying, negate all incoming damage
         if(activeSkill == SkillEnums.PARRY)
         {
