@@ -1,4 +1,3 @@
-import java.util.Random;
 
 public class SewageBeast extends Enemy {
     public SewageBeast()

@@ -7,7 +7,7 @@ public class EncounterBoss {
     private final String introText;
 
     // constructor
-    public EncounterBoss(int encounterId, String introText, EnemyBoss enemy) {
+    public EncounterBoss(String introText, EnemyBoss enemy) {
         this.enemy = enemy;
         this.introText = introText;
     }
@@ -34,7 +34,7 @@ public class EncounterBoss {
                         new Choice("Guard", -1, -1),
                         new Choice("Skills", -1, -1),
                         new Choice("Inspect", -1, -1),
-                }, -1, new PromptFunction[]{new EmptyPromptFunction()});
+                }, new PromptFunction[]{new EmptyPromptFunction()});
         prompt.displayPrompt();
     }
 

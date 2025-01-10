@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main {
     private static void endGame(Player player, PromptManager promptManager, Choice currentChoice)
     {
-        EncounterBoss finalEncounter = new EncounterBoss(8, "", new King());
+        EncounterBoss finalEncounter = new EncounterBoss("", new King());
         finalEncounter.printIntro();
         finalEncounter.beginBattleLoop(player);
 
@@ -54,15 +54,6 @@ public class Main {
                 promptManager.chooseNextPrompt(player.currentPrompt);
             }
         }
-
-        // use these for testing
-        /*player.addSkill(new SkillDoubleHit());
-        player.addSkill(new SkillParry());
-        player.addSkill(new SkillHeal());
-        player.addSkill(new SkillPierce());
-        player.setWeapon(new Greatsword());
-        promptManager.chooseNextPrompt(37);
-        player.giveExperience(50000);*/
 
         // GAME LOOP
         while(playing) {

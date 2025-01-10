@@ -1,7 +1,5 @@
 // abstract class for the final boss in the game
 
-import java.util.Random;
-
 public abstract class EnemyBoss {
     public String name;          // enemy's name
     public int health;           // enemy's health
@@ -24,7 +22,6 @@ public abstract class EnemyBoss {
 
     // attacks the player and deals damage
     public abstract void attack(Player player);
-    public abstract void parry(Player player);
 
     // takes damage depending on what's given
     public abstract void takeDamage(int damage);

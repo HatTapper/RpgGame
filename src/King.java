@@ -95,11 +95,6 @@ public class King extends EnemyBoss {
     }
 
     @Override
-    public void parry(Player player) {
-
-    }
-
-    @Override
     public void takeDamage(int damage) {
         // prevents boss from taking any damage in phase 3
         if(phase == Phase.PHASE_3)

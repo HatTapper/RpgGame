@@ -12,8 +12,7 @@ public class AllPrompts {
 
         Choice choice0 = new Choice("Search your surroundings.", -1, 1);
         Choice choice1 = new Choice("Call for help.", 0, 2);
-        Choice choice2 = new Choice("PLACEHOLDER DO NOT USE WITHOUT REDEFINING", -1, -1);
-        Choice choice3 = new Choice("PLACEHOLDER DO NOT USE WITHOUT REDEFINING", -1, -1);
+        Choice choice2;
 
         Prompt Prompt0 = new Prompt("""
                You open your eyes, the smell of rot invading your nostrils.
@@ -34,7 +33,7 @@ public class AllPrompts {
                (Tip: To make a choice, enter the corresponding number next to the option.
                To quit, enter "q".
                To view your stats at any time, enter "stats".)
-               \s""", new Choice[]{choice0, choice1}, 0, emptyFunc);
+               \s""", new Choice[]{choice0, choice1}, emptyFunc);
 
         choice0 = new Choice("Put your hand inside the sewage water.", -1, 3);
         choice1 = new Choice("Give up looking for something.", -1, 0);
@@ -44,13 +43,13 @@ public class AllPrompts {
                The dim lighting makes it difficult, and you ultimately can't find anything useful.
                
                Your gaze drifts toward the viscous sewage water, a stagnant current gently flowing along who knows what.
-               \s""", new Choice[]{choice0, choice1}, 1, emptyFunc);
+               \s""", new Choice[]{choice0, choice1}, emptyFunc);
 
         choice0 = new Choice("Continue", -1, 4);
         Prompt Prompt2 = new Prompt("""
                Ew, you didn't think rats were that big. Plus it had, like, disgusting stuff sticking out of its fur.
                As the rat draws its final breath, you try not to think too hard about struggling against a mere rodent.
-               \s""", new Choice[]{choice0}, 2, emptyFunc);
+               \s""", new Choice[]{choice0}, emptyFunc);
 
         choice0 = new Choice("Continue", -1, 4);
         Prompt Prompt3 = new Prompt("""
@@ -59,7 +58,7 @@ public class AllPrompts {
                
                Lo and behold, there was nothing inside the "water" but a sense of lingering disappointment in yourself.
                You store your disappointment in your inventory and continue. Your hand stings, but it feels stronger??
-               \s""", new Choice[]{choice0}, 3, new PromptFunction[]{new HealthPromptFunction(-10), new DamagePromptFunction(3)} );
+               \s""", new Choice[]{choice0}, new PromptFunction[]{new HealthPromptFunction(-10), new DamagePromptFunction(3)} );
 
         choice0 = new Choice("Travel down the crawlspace.", 1, 5);
         choice1 = new Choice("Continue down the main path.", -1, 6);
@@ -68,7 +67,7 @@ public class AllPrompts {
                 
                 Running your hand along the slick concrete wall, your fingers suddenly catch along a divot in the wall.
                 Upon investigation, there appears to be a crawlspace. It's far too dark to see anything in there.
-                """, new Choice[]{choice0, choice1}, 4, emptyFunc);
+                """, new Choice[]{choice0, choice1}, emptyFunc);
 
         choice0 = new Choice("Continue down the main path.", -1, 6);
         Prompt Prompt5 = new Prompt("""
@@ -76,7 +75,7 @@ public class AllPrompts {
                 
                 Either way, you're sure that the combat experience will come in handy for the future
                 when you finally break free from this sewer.
-                """, new Choice[]{choice0}, 5, emptyFunc);
+                """, new Choice[]{choice0}, emptyFunc);
 
         choice0 = new Choice("Stand up!", 2, 7);
         Prompt Prompt6 = new Prompt("""
@@ -91,7 +90,7 @@ public class AllPrompts {
                 Taking a deep breath, your brief recovery is interrupted as the sounds of sloshing water can be heard
                 behind you. Turning your head, you see a figure emerge from the sewer water, covered in debris and
                 dripping sewage.
-                """, new Choice[]{choice0}, 6, emptyFunc);
+                """, new Choice[]{choice0}, emptyFunc);
 
         choice0 = new Choice("Begin walking to the village.", -1, 14);
         choice1 = new Choice("This is too scary, go back down the hatch.", -1, 9);
@@ -102,7 +101,7 @@ public class AllPrompts {
                 Apart from a small village in the distance, all you can see is grass and a distant, thick forest.
                 
                 It seems to be the middle of the day, so you have plenty of time to figure out what to do next.
-                """, new Choice[]{choice0, choice1, choice2}, 6, emptyFunc);
+                """, new Choice[]{choice0, choice1, choice2}, emptyFunc);
 
         choice0 = new Choice("Keep basking in the sun.", -1, 11);
         choice1 = new Choice("Begin walking to the village.", -1, 14);
@@ -111,17 +110,17 @@ public class AllPrompts {
                 
                 You lay your back against the grass, closing your eyes as you listen to the sound of the breeze
                 brushing against the grass. Serene.
-                """, new Choice[]{choice0, choice1}, 6, emptyFunc);
+                """, new Choice[]{choice0, choice1}, emptyFunc);
 
         choice0 = new Choice("Begin walking to the village.", -1, 14);
         choice1 = new Choice("Bask in the sun.", -1, 8);
         Prompt Prompt9 = new Prompt("""
                 No. You aren't going back down there.
-                """, new Choice[]{choice0, choice1}, 6, emptyFunc);
+                """, new Choice[]{choice0, choice1}, emptyFunc);
 
         Prompt Prompt10 = new Prompt("""
                 This will display when the user wants to go to the village.
-                """, new Choice[]{choice0}, 6, emptyFunc);
+                """, new Choice[]{choice0}, emptyFunc);
 
         choice0 = new Choice("Zzz...", 3, 13);
         choice1 = new Choice("No! Fight sleep!", -1, 12);
@@ -130,17 +129,17 @@ public class AllPrompts {
                 
                 Ah, the sun feels so nice, so warm...
                 You feel yourself start to drift off...
-                """, new Choice[]{choice0, choice1}, 6, emptyFunc);
+                """, new Choice[]{choice0, choice1}, emptyFunc);
 
         choice0 = new Choice("Set out for the village.", -1, 14);
         Prompt Prompt12 = new Prompt("""
                 "No!" you cry out as you slap yourself across the face. Ow.
-                """, new Choice[]{choice0}, 6, new PromptFunction[]{new HealthPromptFunction(-1)});
+                """, new Choice[]{choice0}, new PromptFunction[]{new HealthPromptFunction(-1)});
 
         choice0 = new Choice("Set out for the village.", -1, 19);
         Prompt Prompt13 = new Prompt("""
                 It's far too late to be staying out here. You need to get to the village as soon as possible.
-                """, new Choice[]{choice0}, 6, emptyFunc);
+                """, new Choice[]{choice0}, emptyFunc);
 
         choice0 = new Choice("Go to the inn.", -1, 15);
         choice1 = new Choice("Go to the shop.", -1, 16);
@@ -149,7 +148,7 @@ public class AllPrompts {
                 Upon reaching the village, you can see the bustle of people walking around. Nobody seems to pay any mind
                 to your presence. Apart from a bunch of what looks like normal houses, you spot a few buildings that
                 you could check out.
-                """, new Choice[]{choice0, choice1, choice2}, 6, emptyFunc);
+                """, new Choice[]{choice0, choice1, choice2}, emptyFunc);
 
         choice0 = new Choice("Wait for the owner.", -1, 19);
         choice1 = new Choice("Go to the shop.", -1, 16);
@@ -162,7 +161,7 @@ public class AllPrompts {
                 You suddenly remember the pouch of money you had in your pocket. You look around for anyone that appeared
                 to be the owner of the inn, but nobody seems to be there. You could wait for the owner to show up, but
                 you'd miss out on exploring the rest of the village if you did.
-                """, new Choice[]{choice0, choice1, choice2}, 6, emptyFunc);
+                """, new Choice[]{choice0, choice1, choice2}, emptyFunc);
 
         choice0 = new Choice("Buy the sword (-5 silver)", -1, 17);
         choice1 = new Choice("Buy the shield (-5 silver)", -1, 18);
@@ -177,20 +176,20 @@ public class AllPrompts {
                 
                 Pulling out your pouch, you check the prices again. Seeing that inns don't tend to be free, you decide that
                 you'll have to pick between the two options such that you'll still have 5 silver left over for the inn.
-                """, new Choice[]{choice0, choice1, choice2}, 6, emptyFunc);
+                """, new Choice[]{choice0, choice1, choice2}, emptyFunc);
 
         choice0 = new Choice("Go to the inn.", -1, 19);
         Prompt Prompt17 = new Prompt("""
                 Nice, a new weapon. You put it in your inventory and continue on your way. It seems to be getting late.
                 You should go to the inn.
-                """, new Choice[]{choice0}, 6,
+                """, new Choice[]{choice0},
                 new PromptFunction[]{new WeaponPromptFunction(new Sword()), new DefensePromptFunction(1), new MoneyPromptFunction(-5), new SkillPromptFunction(new SkillDoubleHit())});
 
         choice0 = new Choice("Go to the inn.", -1, 19);
         Prompt Prompt18 = new Prompt("""
                 Nice, a new shield. You put it in your inventory and continue on your way. It seems to be getting late.
                 You should go to the inn.
-                """, new Choice[]{choice0}, 6,
+                """, new Choice[]{choice0},
                 new PromptFunction[]{new DefensePromptFunction(10), new MoneyPromptFunction(-5), new SkillPromptFunction(new SkillParry())});
 
         choice0 = new Choice("Sleep.", -1, 21);
@@ -198,7 +197,7 @@ public class AllPrompts {
                 You pay the 5 silver coin cost to take a room for the night at the inn. You enter the room and
                 immediately collapse onto the soft mattress. After everything that's been going on today, you feel refreshed and
                 just want to sleep. You'll figure out what to do tomorrow.
-                """, new Choice[]{choice0}, 6,
+                """, new Choice[]{choice0},
                 new PromptFunction[]{new MoneyPromptFunction(-5), new HealthPromptFunction(999)});
 
         choice0 = new Choice("Go to the inn.", -1, 19);
@@ -209,7 +208,7 @@ public class AllPrompts {
                 
                 After you finally manage to take your eyes off the words, you realize it's gotten late. Well, at least
                 you spent your time doing something productive before going to the inn...
-                """, new Choice[]{choice0}, 6,
+                """, new Choice[]{choice0},
                 new PromptFunction[]{new DamagePromptFunction(10), new DefensePromptFunction(5), new SkillPromptFunction(new SkillHeal())});
 
         choice0 = new Choice("Fight.", 4, 22);
@@ -220,18 +219,18 @@ public class AllPrompts {
                 'No time to hesitate,' you say to yourself as your words quickly become truth due to an armored soldier
                 bursting through the door to your room almost immediately after. You have no clue what vendetta they have
                 against you, but it's time to fight.
-                """, new Choice[]{choice0}, 6, emptyFunc);
+                """, new Choice[]{choice0}, emptyFunc);
 
         choice0 = new Choice("Fight.", 4, 23);
         Prompt Prompt22 = new Prompt("""
                 As soon as one falls, another one charges forward, clearly dead-set on finishing you off.
-                """, new Choice[]{choice0}, 6, emptyFunc);
+                """, new Choice[]{choice0}, emptyFunc);
 
         choice0 = new Choice("Fight.", 5, 24);
         Prompt Prompt23 = new Prompt("""
                 This one falls, another one approaches. This guy looks different. The armored knight steps up to you coldly,
                 raising his great sword. You take a deep breath, feeling like you could take on anything in this moment.
-                """, new Choice[]{choice0}, 6, emptyFunc);
+                """, new Choice[]{choice0}, emptyFunc);
 
         choice0 = new Choice("Figure out what to do next.", -1, 25);
         Prompt Prompt24 = new Prompt("""
@@ -244,7 +243,7 @@ public class AllPrompts {
                 been the leader of this attack, as the villagers praise and cheer. The innkeeper hurriedly steps out
                 behind you and returns you the money you spent on the room last night. Other villagers hand you money and
                 gifts as well. You feel stronger.
-                """, new Choice[]{choice0}, 6, new PromptFunction[]{new ExperiencePromptFunction(1000), new MoneyPromptFunction(100)});
+                """, new Choice[]{choice0}, new PromptFunction[]{new ExperiencePromptFunction(1000), new MoneyPromptFunction(100)});
 
         choice0 = new Choice("Set out for the castle.", -1, 26);
         Prompt Prompt25 = new Prompt("""
@@ -255,18 +254,18 @@ public class AllPrompts {
                 you were going to go take on the king and defeat him in battle.
                 
                 The villagers cheered your resolution, wishing you good luck for your journey.
-                """, new Choice[]{choice0}, 6, emptyFunc);
+                """, new Choice[]{choice0}, emptyFunc);
 
         choice0 = new Choice("Fight.", 6, 27);
         Prompt Prompt26 = new Prompt("""
                 Not long after you leave the village, a hyena ambushes you in broad daylight! Time to test your skill.
-                """, new Choice[]{choice0}, 6, emptyFunc);
+                """, new Choice[]{choice0}, emptyFunc);
 
         choice0 = new Choice("Continue!", -1, 28);
         Prompt Prompt27 = new Prompt("""
                 Wow, that fight felt incredibly easy. You look at yourself with a newfound confidence as you continue
                 traveling down the barren path to the kingdom of Gaurde.
-                """, new Choice[]{choice0}, 6, emptyFunc);
+                """, new Choice[]{choice0}, emptyFunc);
 
         choice0 = new Choice("Purchase the great sword.", -1, 29);
         choice1 = new Choice("Purchase the dagger.", -1, 30);
@@ -285,24 +284,24 @@ public class AllPrompts {
                 
                 You purchase the skill book for 10 silver, leaving you with either the sword or dagger which both cost 50
                 silver each.
-                """, new Choice[]{choice0, choice1, choice2}, 6, new PromptFunction[]{new MoneyPromptFunction(-10)});
+                """, new Choice[]{choice0, choice1, choice2}, new PromptFunction[]{new MoneyPromptFunction(-10)});
 
         choice0 = new Choice("Continue.", -1, 32);
         Prompt Prompt29 = new Prompt("""
                 You leave the shop with your new sword. The weight will take some getting used to, but you can feel the
                 sheer power it holds.
-                """, new Choice[]{choice0}, 6, new PromptFunction[]{new WeaponPromptFunction(new Greatsword()), new SkillPromptFunction(new SkillPierce()), new SkillPromptFunction(new SkillWarcry()), new MoneyPromptFunction(-50)});
+                """, new Choice[]{choice0}, new PromptFunction[]{new WeaponPromptFunction(new Greatsword()), new SkillPromptFunction(new SkillPierce()), new SkillPromptFunction(new SkillWarcry()), new MoneyPromptFunction(-50)});
 
         choice0 = new Choice("Continue.", -1, 32);
         Prompt Prompt30 = new Prompt("""
                 You leave the shop with your new dagger. It feels light in your hands and seems to hold vampiric powers
                 within.
-                """, new Choice[]{choice0}, 6, new PromptFunction[]{new WeaponPromptFunction(new Dagger()), new SkillPromptFunction(new SkillPierce()), new SkillPromptFunction(new SkillVampiricSlash()), new MoneyPromptFunction(-50)});
+                """, new Choice[]{choice0}, new PromptFunction[]{new WeaponPromptFunction(new Dagger()), new SkillPromptFunction(new SkillPierce()), new SkillPromptFunction(new SkillVampiricSlash()), new MoneyPromptFunction(-50)});
 
         choice0 = new Choice("Continue.", -1, 33);
         Prompt Prompt31 = new Prompt("""
                 Yeah, who needs super powerful magical weapons anyway? You leave with just the skill book.
-                """, new Choice[]{choice0}, 6, new PromptFunction[]{new SkillPromptFunction(new SkillPierce())});
+                """, new Choice[]{choice0}, new PromptFunction[]{new SkillPromptFunction(new SkillPierce())});
 
         choice0 = new Choice("Well, about that... *quickly attack the knight*", 5, 34);
         Prompt Prompt32 = new Prompt("""
@@ -315,7 +314,7 @@ public class AllPrompts {
                 
                 Shoot, if only you had some money left over, you could bribe him... You awkwardly show the small amount
                 of money you have. He doesn't acknowledge it and simply asks again for the necessary documentation.
-                """, new Choice[]{choice0}, 6, emptyFunc);
+                """, new Choice[]{choice0}, emptyFunc);
 
         choice0 = new Choice("Well, about that... *quickly attack the knight*", 5, 34);
         choice1 = new Choice("Would this change your mind? (-60 silver)", -1, 36);
@@ -328,12 +327,12 @@ public class AllPrompts {
                 necessary documentation.
                 
                 Hmm, what to do...
-                """, new Choice[]{choice0, choice1}, 6, emptyFunc);
+                """, new Choice[]{choice0, choice1}, emptyFunc);
 
         choice0 = new Choice("Next fight.", 7, 35);
         Prompt Prompt34 = new Prompt("""
                 Ah great, now you've gone and done it. A lot of guards are coming, better get ready.
-                """, new Choice[]{choice0}, 6, emptyFunc);
+                """, new Choice[]{choice0}, emptyFunc);
 
         choice0 = new Choice("Face the king.", -1, 37);
         Prompt Prompt35 = new Prompt("""
@@ -342,14 +341,14 @@ public class AllPrompts {
                 
                 You begin heading to the large building straight ahead. Inside, you can see a carpeted path that appears
                 to lead directly to the throne room, its entrance shrouded by curtains.
-                """, new Choice[]{choice0}, 6, emptyFunc);
+                """, new Choice[]{choice0}, emptyFunc);
 
         choice0 = new Choice("Face the king.", -1, 37);
         Prompt Prompt36 = new Prompt("""
                 The knight you bribed leads you inside. Grateful for the easy entrance, you begin heading to the large
                 building straight ahead. Inside, you can see a carpeted path that appears to lead directly to the throne
                 room, its entrance shrouded by curtains.
-                """, new Choice[]{choice0}, 6, emptyFunc);
+                """, new Choice[]{choice0}, emptyFunc);
 
         choice0 = new Choice("Take on the king!", 8, 38);
         Prompt Prompt37 = new Prompt("""
@@ -359,7 +358,7 @@ public class AllPrompts {
                 
                 Seeing how incredibly antagonistic he is, you're glad that you decided to fight him. You smirk, knowing
                 that this battle will be the toughest you've faced yet. And you wouldn't have it any other way.
-                """, new Choice[]{choice0}, 6, emptyFunc);
+                """, new Choice[]{choice0}, emptyFunc);
 
         choice0 = new Choice("Yay!", -1, 39);
         Prompt Prompt38 = new Prompt("""
@@ -372,7 +371,7 @@ public class AllPrompts {
                 Regardless, you did it. You saved the land from a tyrannical King.
                 
                 Congratulations!
-                """, new Choice[]{choice0}, 6, emptyFunc);
+                """, new Choice[]{choice0}, emptyFunc);
 
 
         // structure to store all the prompts to be accessed by the prompt manager later on

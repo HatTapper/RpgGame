@@ -1,15 +1,13 @@
 public class Prompt {
     private final String promptText;
     private final Choice[] choices;
-    private final int promptId;
     private final PromptFunction[] functions;
     private boolean functionRan;
 
-    public Prompt(String promptText, Choice[] choices, int promptId, PromptFunction[] functions)
+    public Prompt(String promptText, Choice[] choices, PromptFunction[] functions)
     {
         this.promptText = promptText;
         this.choices = choices;
-        this.promptId = promptId;
         this.functions = functions;
         this.functionRan = false;
     }
@@ -31,9 +29,6 @@ public class Prompt {
     {
         if(choiceId < 1 || choiceId > choices.length) return null;
         return choices[choiceId - 1];
-    }
-    public int getPromptId() {
-        return promptId;
     }
 
     public void runFunction(Player player)

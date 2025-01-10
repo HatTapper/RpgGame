@@ -2,7 +2,6 @@ import java.io.*;
 
 public class SaveManager {
     public final String FILE_LOCATION = System.getProperty("user.dir") + "\\data\\savedata.txt";
-    private final byte KEY = 'k';
 
     // saves player stats and the prompt they were last on
     public void saveData(Player player)

@@ -1,4 +1,4 @@
-import java.util.Random;
+
 
 public class Hyena extends Enemy {
     public Hyena() {

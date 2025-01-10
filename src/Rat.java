@@ -1,4 +1,3 @@
-import java.util.Random;
 
 public class Rat extends Enemy {
     public Rat() {

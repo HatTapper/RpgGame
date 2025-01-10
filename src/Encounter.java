@@ -7,12 +7,10 @@ public class Encounter {
     private final Enemy enemy;
     // the text that will be displayed at the beginning of the encounter
     private final String introText;
-    private final EnemyBoss boss;
 
     // constructor
-    public Encounter(int encounterId, String introText, Enemy enemy) {
+    public Encounter(String introText, Enemy enemy) {
         this.enemy = enemy;
-        this.boss = null;
         this.introText = introText;
     }
 
@@ -38,7 +36,7 @@ public class Encounter {
                         new Choice("Guard", -1, -1),
                         new Choice("Skills", -1, -1),
                         new Choice("Inspect", -1, -1),
-                }, -1, new PromptFunction[]{new EmptyPromptFunction()});
+                }, new PromptFunction[]{new EmptyPromptFunction()});
         prompt.displayPrompt();
     }
 

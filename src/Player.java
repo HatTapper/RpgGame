@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.HashMap;
-import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -20,8 +19,8 @@ public class Player implements Serializable {
     private boolean guarding;                         // if the player is guarding or not (reduces damage taken by 75%)
     private Weapon weapon;                            // the weapon the player is holding
     private SkillEnums activeSkill;                   // the current skill that the player is using, important for status-based skills
-    private ArrayList<Skill> skills;                  // the list of skills the player has access to
-    private Map<SkillEnums, Integer> skillCooldowns;  // hashmap containing skills on cooldown, decrements every full turn in an encounter
+    private final ArrayList<Skill> skills;                  // the list of skills the player has access to
+    private final Map<SkillEnums, Integer> skillCooldowns;  // hashmap containing skills on cooldown, decrements every full turn in an encounter
     private int money;                                // the amount of money the player has
     private int score;                                // the "score" the player has earned. for now, this is just the total EXP gained
 
@@ -46,7 +45,7 @@ public class Player implements Serializable {
         this.health = 100;
         this.maxHealth = 100;
 
-        this.skills = new ArrayList<Skill>();
+        this.skills = new ArrayList<>();
         this.activeSkill = SkillEnums.NONE;
         this.skillCooldowns = new HashMap<>();
         this.money = 10;
@@ -117,10 +116,6 @@ public class Player implements Serializable {
 
     public int getLevel()
         { return level; }
-    public int getExperience()
-        { return experience; }
-    public int getExperienceToNextLevel()
-        { return experienceToNextLevel; }
 
     public String getName()
         { return name;}
@@ -160,8 +155,6 @@ public class Player implements Serializable {
 
     public void guard(boolean guard)
         {guarding = guard;}
-    public boolean isGuarding()
-        { return guarding; }
 
     public void addSkillCooldown(SkillEnums skillType, int cooldown)
         { skillCooldowns.put(skillType, cooldown); }
@@ -262,9 +255,8 @@ public class Player implements Serializable {
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             writer.write(scoreToSave);
-        } catch (IOException e) {
-                e.printStackTrace();
-        }
+        } catch (Exception ignored)
+        {}
     }
     public boolean doesPlayerHaveHighScore() {
         String filePath = "data/highscore.txt";

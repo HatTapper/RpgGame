@@ -1,4 +1,3 @@
-import java.util.Random;
 
 public class Soldier extends Enemy {
     public Soldier()
